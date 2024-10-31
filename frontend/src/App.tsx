@@ -1,5 +1,11 @@
+import Header from './components/Header/Header';
+
 const App = () => {
-  return <h1>Welcome To Proshop</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default App;
