@@ -7,6 +7,11 @@ export const StyledNavigator = styled.nav`
   .nav__menu {
     display: flex;
     justify-content: space-evenly;
+
+    .nav__menu__item {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
   }
 
   svg {

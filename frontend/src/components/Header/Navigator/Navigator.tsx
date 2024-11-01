@@ -1,8 +1,8 @@
 import Brand from './Brand/Brand';
-import Search from './Icons/Search/Search';
-import Favourites from './Icons/Favourites/Favourites';
-import User from './Icons/User/User';
-import Cart from './Icons/Cart/Cart';
+import SearchItem from './Items/Search/SearchItem';
+import FavouritesItem from './Items/Favourites/FavouritesItem';
+import UserItem from './Items/User/UserItem';
+import CartItem from './Items/Cart/CartItem';
 import { StyledNavigator } from './Navigator.styled';
 
 const Navigator = () => {
@@ -11,16 +11,16 @@ const Navigator = () => {
       <Brand />
       <ul className="nav__menu">
         <li className="nav__menu__item">
-          <Search />
+          <SearchItem />
         </li>
         <li className="nav__menu__item">
-          <Favourites />
+          <FavouritesItem />
         </li>
         <li className="nav__menu__item">
-          <User />
+          <UserItem />
         </li>
         <li className="nav__menu__item">
-          <Cart />
+          <CartItem />
         </li>
       </ul>
     </StyledNavigator>
