@@ -8,6 +8,11 @@ export const StyleFavouritesItem = styled.a`
   background-color: inherit;
   color: #111111;
 
+  svg {
+    font-size: 24px;
+    margin: 8px;
+  }
+
   &:hover {
     pointer: cursor;
     background-color: #e5e5e5;

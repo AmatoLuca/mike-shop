@@ -9,13 +9,10 @@ export const StyledNavigator = styled.nav`
     justify-content: space-evenly;
 
     .nav__menu__item {
-      padding-left: 6px;
-      padding-right: 6px;
+      @media (min-width: 576px) {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
     }
-  }
-
-  svg {
-    font-size: 24px;
-    margin: 8px;
   }
 `;
