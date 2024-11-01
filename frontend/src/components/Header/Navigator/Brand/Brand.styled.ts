@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledBrand = styled.div`
+export const StyledBrand = styled.a`
   font-size: 32px;
   font-weight: 600;
   text-transform: uppercase;
