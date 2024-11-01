@@ -6,8 +6,4 @@ export const StyledHeader = styled.header`
   padding-right: 24px;
   padding-top: 12px;
   padding-bottom: 12px;
-
-  @media (max-width: 992px) {
-    flex-direction: column;
-  }
 `;

@@ -1,23 +1,24 @@
 import styled from 'styled-components';
 
 export const StyledNavigator = styled.nav`
-  display: grid;
-  grid-template-columns: 2fr auto auto;
-  grid-template-rows: repeat(2, auto);
+  display: flex;
 
-  .grid-area-1,
-  .grid-area-2,
-  .grid-area-3,
-  .grid-area-4,
-  .grid-area-5,
-  .grid-area-6 {
+  .nav__main-menu {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
   }
 
-  .grid-area-2,
-  .grid-area-3 {
-    justify-content: flex-end;
+  .nav__secondary-menu {
+    display: flex;
+    @media (min-width: 992px) {
+      justify-content: flex-end;
+      padding-left: 32px;
+    }
+  }
+
+  .nav__main__menu__icons {
+    display: flex;
   }
 
   svg {

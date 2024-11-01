@@ -1,29 +1,28 @@
+import Brand from './Brand/Brand';
+import Search from './Icons/Search/Search';
+import Favourites from './Icons/Favourites/Favourites';
+import User from './Icons/User/User';
+import Cart from './Icons/Cart/Cart';
 import { StyledNavigator } from './Navigator.styled';
-import Brand from '../Brand/Brand';
-import {
-  PiShoppingBagLight,
-  PiHeartStraightLight,
-  PiUserLight,
-} from 'react-icons/pi';
-import { CiSearch } from 'react-icons/ci';
 
 const Navigator = () => {
   return (
     <StyledNavigator>
-      <div className="grid-area-1">
-        <Brand />
+      <div className="nav__main-menu">
+        <div className="nav__main-menu__brand">
+          <Brand />
+        </div>
+
+        <div className="nav__main__menu__icons">
+          <Search />
+          <Favourites />
+        </div>
       </div>
-      <div className="grid-area-2">
-        <CiSearch />
-        <PiHeartStraightLight />
+
+      <div className="nav__secondary-menu">
+        <User />
+        <Cart />
       </div>
-      <div className="grid-area-3">
-        <PiUserLight />
-        <PiShoppingBagLight />
-      </div>
-      <div className="grid-area-4"></div>
-      <div className="grid-area-5"></div>
-      <div className="grid-area-6"></div>
     </StyledNavigator>
   );
 };
