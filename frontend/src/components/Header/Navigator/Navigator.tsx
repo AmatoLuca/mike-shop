@@ -8,21 +8,21 @@ import { StyledNavigator } from './Navigator.styled';
 const Navigator = () => {
   return (
     <StyledNavigator>
-      <div className="nav__main-menu">
-        <div className="nav__main-menu__brand">
-          <Brand />
-        </div>
-
-        <div className="nav__main__menu__icons">
+      <Brand />
+      <ul className="nav__menu">
+        <li className="nav__menu__item">
           <Search />
+        </li>
+        <li className="nav__menu__item">
           <Favourites />
-        </div>
-      </div>
-
-      <div className="nav__secondary-menu">
-        <User />
-        <Cart />
-      </div>
+        </li>
+        <li className="nav__menu__item">
+          <User />
+        </li>
+        <li className="nav__menu__item">
+          <Cart />
+        </li>
+      </ul>
     </StyledNavigator>
   );
 };
