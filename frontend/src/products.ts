@@ -2,7 +2,7 @@ const products = [
   {
     _id: '1',
     name: 'Jordan Heir',
-    image: '/images/JORDAN+HEIR+SERIES.png',
+    image: '/images/Jordan+Heir/JORDAN+HEIR+SERIES.png',
     description:
       'Do you want to increase your competitive advantage? Introducing Jordan Heir. Crafted based on suggestions from female basketball players, this shoe is designed for agile movements and ideal grip on the ground. The interchangeable footbed offers greater mobility, while the integrated cage generates a fit that conforms to the foot for extra support in lateral movements. Run and shoot with confidence. After all, you dominate the game.',
     brand: 'Jordan',
@@ -15,7 +15,7 @@ const products = [
   {
     _id: '2',
     name: 'Jordan One Take 5',
-    image: '/images/JORDAN+ONE+TAKE+5.jpeg',
+    image: '/images/Jordan+One+Take+5/JORDAN+ONE+TAKE+5.jpeg',
     description:
       "Accelerate, change direction, go for the shot and score. Then do it again. Russell Westbrook's new shoe supports your game at speed to keep you unstoppable. The outer sockliner and wraparound toe box provide support on the court while Zoom Air cushioning in the forefoot gives optimal energy return from the first minute to the last minute of play.",
     brand: 'Jordan',
@@ -28,7 +28,7 @@ const products = [
   {
     _id: '3',
     name: 'KD17 x Bink',
-    image: '/images/KD17+NRG.jpeg',
+    image: '/images/KD17+x+Bink/KD17+NRG.jpeg',
     description:
       "Although Kevin Durant has rightfully entered the Olympus of basketball, his champion soul will not subside unless he takes the court to perfect his technique. Aim for glory with KD17, a shoe for gym enthusiasts and unstoppable players. The Air Zoom unit on the forefoot helps improve the first step. Combined with Nike Air cushioning, it gives you the right fuel to sprint full court and make those defensive stops that can decide a game. This special collaboration with Bink celebrates the manufacturer's hometown and childhood spent in southeastern Virginia.",
     brand: 'Nike',
@@ -41,7 +41,7 @@ const products = [
   {
     _id: '4',
     name: 'Luka 2 Dragon Bridge',
-    image: '/images/JORDAN+LUKA+2+S.jpeg',
+    image: '/images/Luka+2+Dragon+Bridge/JORDAN+LUKA+2+S.jpeg',
     description:
       "Slovenia, home of Luka, is the first country to win the title of “Green Destination of the World” nationwide. Pay tribute to this achievement with an edition of Luka 2 inspired by Ljubljana's iconic Dragon Bridge. At least 20 percent of each pair is made from recycled materials to pay tribute to the country's ongoing commitment to sustainability.",
     brand: 'Jordan',
@@ -54,7 +54,7 @@ const products = [
   {
     _id: '5',
     name: 'Air Jordan 1 Low',
-    image: '/images/AIR+JORDAN+1+LOW.jpeg',
+    image: '/images/Nike+Air+Jordan+1+Low/AIR+JORDAN+1+LOW.jpeg',
     description:
       'Inspired by the 1985 original, Air Jordan 1 Low offers a classic and essential look that is familiar but still relevant. With an iconic design that goes perfectly with any outfit, this shoe will keep you looking your best.',
     brand: 'Nike',
@@ -67,7 +67,7 @@ const products = [
   {
     _id: '6',
     name: 'Nike G Cut 3 Electric',
-    image: '/images/G.T.+CUT+3+OLY.jpeg',
+    image: '/images/Nike+G.+Cut+3+Electric/G.T.+CUT+3+OLY.jpeg',
     description:
       "How can you turn the game around when it's time to win? Start by wearing G.T. Cut 3. Designed to help you create space for backward leaps and backdoor cuts, its grippy traction on multiple surfaces helps you stop at a moment's notice and change direction at will. And when you're making all those game-changing plays, the ultra-reactive ZoomX foam we've added into the shoe helps keep you energized for all four quarters.",
     brand: 'Nike',
@@ -80,7 +80,7 @@ const products = [
   {
     _id: '7',
     name: 'Nike Metcon 9',
-    image: '/images/NIKE+METCON+9.jpeg',
+    image: '/images/Nike+Metcon+9/NIKE+METCON+9.jpeg',
     description:
       "Whatever your “why” for working out, it's worth it with Metcon 9. We've improved on the 8 model with a larger Hyperlift sole plate and non-slip rubber rope outsole. An authentic must-have for some of the world's greatest athletes, designed for lifters, runners, trainers and very active people, it is still the absolute standard that delivers quality day after day.",
     brand: 'Nike',
@@ -93,7 +93,7 @@ const products = [
   {
     _id: '8',
     name: 'Nike Pegasus EasyOn Electric',
-    image: '/images/PEGASUS+EASYON+OLY.png',
+    image: '/images/Nike+Pegasus+EasyOn+Electric/PEGASUS+EASYON+OLY.png',
     description:
       "Pegasus' responsive cushioning delivers an energetic gait for your daily road runs. Experience the energy return and lightweight feel of this shoe, featuring two Air Zoom units, the ReactX foam midsole, and improved technical mesh on the upper that reduces weight and increases breathability.",
     brand: 'Nike',
@@ -106,7 +106,7 @@ const products = [
   {
     _id: '9',
     name: 'Tatum 2 Vortex',
-    image: '/images/JORDAN+TATUM+2.jpeg',
+    image: '/images/Tatum+2+Vortex/JORDAN+TATUM+2.jpeg',
     description:
       "Bright colors and great energy come together in Tatum 2 “Vortex.” The lightweight, flexible design was created with energy return in mind, and this colorway reflects the way Jayson energizes his team. When you wear it on the court, opponents won't be able to miss all your moves, but that doesn't mean they can stop you from scoring.",
     brand: 'Jordan',
@@ -118,13 +118,13 @@ const products = [
   },
   {
     _id: '10',
-    name: 'Zion 3',
-    image: '/images/JORDAN+ZION+3+NRG.png',
+    name: 'LeBron XXI "Queen Conch"',
+    image: '/images/LeBron/LEBRON+XXI.png',
     description:
-      'Zion is nostalgic and Z-3D is a demonstration of that love. The shoe itself is designed with technology born for the field and engineered to help you maintain ground grip, contain your foot and explode skyward with a cushioned return to the ground.',
-    brand: 'Zion 3',
+      'Last time LeBron rewrote the rules with his shoe collection, as only The King can do. And the comeback is even more stunning. The LeBron XXI has a cable system that works in conjunction with Zoom Air cushioning and a lightweight, ground-hugging design to give you fluidity, explosiveness, and agility without excessive weight. Created for your rise to greatness and the next generation of champions, it is ideal for full-court attacks in pure LeBron style and for flying to the basket and running up and down the court when the game gets into the thick of the action. This special design takes its cue from the Queen Shell, a pastel-colored and hard-to-find sea snail with superior strength and brilliance.',
+    brand: 'Nike',
     category: 'Basket',
-    price: 104.99,
+    price: 142.99,
     countInStock: 8,
     rating: 4,
     numReviews: 7,
