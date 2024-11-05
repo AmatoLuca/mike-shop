@@ -4,11 +4,14 @@ import FavouritesItem from './Items/Favourites/FavouritesItem';
 import UserItem from './Items/User/UserItem';
 import CartItem from './Items/Cart/CartItem';
 import { StyledNavigator } from './Navigator.styled';
+import { Link } from 'react-router-dom';
 
 const Navigator = () => {
   return (
     <StyledNavigator>
-      <Brand />
+      <Link to={`/`}>
+        <Brand />
+      </Link>
       <ul className="nav__menu">
         <li className="nav__menu__item">
           <SearchItem />
@@ -17,10 +20,14 @@ const Navigator = () => {
           <FavouritesItem />
         </li>
         <li className="nav__menu__item">
-          <UserItem />
+          <Link to={`/login`}>
+            <UserItem />
+          </Link>
         </li>
         <li className="nav__menu__item">
-          <CartItem />
+          <Link to={`/cart`}>
+            <CartItem />
+          </Link>
         </li>
       </ul>
     </StyledNavigator>
