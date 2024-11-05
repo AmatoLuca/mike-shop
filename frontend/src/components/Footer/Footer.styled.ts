@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const StyledFooter = styled.div`
   background-color: #f5f5f5;
-  padding: 60px 40px 60px 24px;
+  padding: 120px 40px 120px 24px;
 
   @media (min-width: 992px) {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 200px;
+    padding-bottom: 200px;
   }
 
   .footer-inner {
@@ -19,6 +19,10 @@ export const StyledFooter = styled.div`
       font-weight: 900;
       letter-spacing: -00.33rem;
       line-height: 85%;
+
+      @media (min-width: 576px) {
+        font-size: 120px;
+      }
 
       @media (min-width: 992px) {
         font-size: 190px;

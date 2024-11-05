@@ -55,6 +55,7 @@ export const StyledCarousel = styled.div`
   .flickity-button:hover {
     background: white;
     cursor: pointer;
+    background-color: #f5f5f5;
   }
 
   .flickity-button:focus {
@@ -80,21 +81,33 @@ export const StyledCarousel = styled.div`
   /* ---- previous/next buttons ---- */
 
   .flickity-prev-next-button {
-    top: 50%;
+    top: -10%;
     width: 44px;
     height: 44px;
     border-radius: 50%;
     /* vertically center */
     transform: translateY(-50%);
-
     display: none;
   }
 
   .flickity-prev-next-button.previous {
-    left: 10px;
+    left: 85%;
+
+    @media (min-width: 992px) {
+      left: 87%;
+    }
+
+    @media (min-width: 1200px) {
+      left: 90%;
+    }
+
+    @media (min-width: 1400px) {
+      left: 92%;
+    }
   }
+
   .flickity-prev-next-button.next {
-    right: 10px;
+    right: 30px;
   }
   /* right to left */
   .flickity-rtl .flickity-prev-next-button.previous {

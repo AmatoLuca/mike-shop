@@ -5,6 +5,11 @@ export const StyledCarouselCard = styled.div`
   width: 90vw;
   margin: 12px;
 
+  @media (min-width: 576px) {
+    height: 50vw;
+    width: 60vw;
+  }
+
   @media (min-width: 768px) {
     height: 50vw;
     width: 60vw;
