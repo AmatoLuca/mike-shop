@@ -21,13 +21,11 @@ const Carousel = () => {
       >
         {products.map((imageData) => {
           return (
-            <CarouselCard key={imageData._id}>
-              <img
-                src={imageData.image}
-                key={imageData._id}
-                className="carouselCardImage"
-              />
-            </CarouselCard>
+            <CarouselCard
+              key={imageData._id}
+              productId={imageData._id}
+              imageLink={imageData.image}
+            />
           );
         })}
       </Flickity>

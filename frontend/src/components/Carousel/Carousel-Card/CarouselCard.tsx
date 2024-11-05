@@ -1,8 +1,15 @@
 import { StyledCarouselCard } from './StyledCarouselCard';
 import { CarouselCardProps } from '../Model/index';
+import { Link } from 'react-router-dom';
 
-const CarouselCard = ({ children }: CarouselCardProps) => {
-  return <StyledCarouselCard>{children}</StyledCarouselCard>;
+const CarouselCard = ({ productId, imageLink }: CarouselCardProps) => {
+  return (
+    <StyledCarouselCard>
+      <Link to={`/product/${productId}`}>
+        <img src={imageLink} className="carouselCardImage" />
+      </Link>
+    </StyledCarouselCard>
+  );
 };
 
 export default CarouselCard;
