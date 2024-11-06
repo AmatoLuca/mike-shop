@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledUserItem = styled.a`
+export const StyledUserItem = styled.div`
   display: flex;
   align-items: center;
   color: #111111;

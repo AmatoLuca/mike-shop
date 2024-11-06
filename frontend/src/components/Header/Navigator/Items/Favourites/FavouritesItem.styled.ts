@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyleFavouritesItem = styled.a`
+export const StyleFavouritesItem = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid transparent;

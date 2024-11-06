@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledCartItem = styled.a`
+export const StyledCartItem = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid transparent;
