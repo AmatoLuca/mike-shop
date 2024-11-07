@@ -15,12 +15,18 @@ export const StyledCarouselCard = styled.div`
     width: 60vw;
   }
 
-  @media (min-width: 992px) {
+  /* @media (min-width: 992px) {
     height: 40vw;
     width: 50vw;
-  }
+  } */
 
-  @media (min-width: 1400px) {
+  /* @media (min-width: 1400px) {
+    height: 25vw;
+    width: 35vw;
+  } */
+
+  // DA TESTARE E CONFERMARE
+  @media (min-width: 992px) {
     height: 25vw;
     width: 35vw;
   }
