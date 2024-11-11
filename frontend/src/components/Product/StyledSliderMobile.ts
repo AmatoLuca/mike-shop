@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledSliderMobile = styled.div`
+  margin-bottom: 70px;
+
   .flickity-enabled {
     position: relative;
   }

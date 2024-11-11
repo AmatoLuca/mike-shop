@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
 import { StyledRating } from './Rating.styled';
-import { RatingComponentProps } from './Models';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Reviews from './Reviews/Reviews';
 import Stars from './Stars/Stars';
+import { RatingComponentProps } from './models';
 
 const Rating = ({ value, text }: RatingComponentProps) => {
   const [isReviewOpened, setIsReviewOpened] = useState(false);

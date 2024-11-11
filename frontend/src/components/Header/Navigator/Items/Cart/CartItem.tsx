@@ -3,7 +3,7 @@ import { PiShoppingBagLight } from 'react-icons/pi';
 
 const CartItem = () => {
   return (
-    <StyledCartItem href="#">
+    <StyledCartItem>
       <PiShoppingBagLight />
     </StyledCartItem>
   );

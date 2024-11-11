@@ -3,7 +3,7 @@ import { PiUserLight } from 'react-icons/pi';
 
 const UserItem = () => {
   return (
-    <StyledUserItem href="#">
+    <StyledUserItem>
       <PiUserLight />
       <span>Sign In</span>
     </StyledUserItem>

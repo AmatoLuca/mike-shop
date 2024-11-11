@@ -3,7 +3,7 @@ import { PiHeartStraightLight } from 'react-icons/pi';
 
 const FavouritesItem = () => {
   return (
-    <StyleFavouritesItem href="#">
+    <StyleFavouritesItem>
       <PiHeartStraightLight />
     </StyleFavouritesItem>
   );
