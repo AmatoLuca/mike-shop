@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledRating = styled.div`
   // da rimuovere
-  margin-top: 100px;
+  margin-top: 32px;
   margin-left: 20px;
   margin-right: 20px;
 
