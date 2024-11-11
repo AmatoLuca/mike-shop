@@ -1,10 +1,11 @@
 import { StyledCarousel } from './StyledCarousel';
 import Flickity from 'react-flickity-component';
-import products from '../../products';
 import CarouselCard from './Carousel-Card/CarouselCard';
+import products from '../../products';
+import { Product } from '../models';
 
 const flickityOptions = {
-  initialIndex: 2,
+  //initialIndex: 2,
   draggable: true,
 };
 
@@ -19,12 +20,12 @@ const Carousel = () => {
         reloadOnUpdate // default false
         static // default false
       >
-        {products.map((imageData) => {
+        {products.map((imageData: Product) => {
           return (
             <CarouselCard
               key={imageData._id}
               productId={imageData._id}
-              imageLink={imageData.image}
+              imageLink={imageData.images[0]}
             />
           );
         })}

@@ -1,7 +1,7 @@
-import React from 'react';
 import { StyledProductScreen } from './StyledProductScreen';
-import products from '../../products';
 import { useParams } from 'react-router-dom';
+import products from '../../products';
+import SliderMobile from '../../components/Product/SliderMobile';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -9,7 +9,11 @@ const ProductScreen = () => {
   const product = products.find((product) => product._id === productId);
   console.log('@@@', product);
 
-  return <div>ProductScreen</div>;
+  return (
+    <StyledProductScreen>
+      <SliderMobile product={product} />
+    </StyledProductScreen>
+  );
 };
 
 export default ProductScreen;
