@@ -5,6 +5,7 @@ import SliderMobile from '../../components/Product/SliderMobile';
 import useWindowWidth from '../../hooks/useWindowWidth';
 import Rating from '../../components/Rating/Rating';
 import Button from '../../components/Button/Button';
+import { PiHeartStraightLight } from 'react-icons/pi';
 
 const ProductScreen = () => {
   const windowWidth = useWindowWidth();
@@ -26,7 +27,9 @@ const ProductScreen = () => {
 
       <div className="product-btn-wrapper">
         <Button $inputColor={'black'}>{'Add to Bag'}</Button>
-        <Button $inputColor={'white'}>{'Favorite'}</Button>
+        <Button $inputColor={'white'}>
+          {'Favorite'} <PiHeartStraightLight />
+        </Button>
       </div>
 
       <div className="product-description">{product?.description}</div>

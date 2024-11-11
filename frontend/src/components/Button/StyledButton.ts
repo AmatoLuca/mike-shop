@@ -11,11 +11,23 @@ export const StyledButton = styled.div<{ $inputColor: Color }>`
   line-height: 24px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 4px;
   border: 1px solid #919191;
 
   &:hover {
     background-color: #919191;
     cursor: pointer;
+  }
+
+  svg {
+    color: ${({ $inputColor }) => {
+      if ($inputColor === 'black') return '#ffffff ';
+      if ($inputColor === 'white') return '#111111';
+      return 'inherit'; // Valore di default se non corrisponde a black o white
+    }};
+
+    font-size: 24px;
   }
 
   background-color: ${({ $inputColor }) => {
