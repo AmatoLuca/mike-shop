@@ -1,14 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { StyledProductSizes } from './StyledProductSizes';
-import { ProductSizeProps } from '../models';
+import { ProductSizeProps, SizesStateProps } from '../models';
 import ButtonSize from './ButtonSize/ButtonSize';
-
-type SizesStateProps = {
-  id: number;
-  size: number;
-  countInStock: number;
-  isActive: boolean;
-};
 
 const ProductSizes = ({ sizes }: ProductSizeProps) => {
   const [sizeState, setSizeState] = useState<SizesStateProps[]>([]);
