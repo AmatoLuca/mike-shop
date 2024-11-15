@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { StyledButtonSize } from '../ButtonSize/StyledButtonSize';
 import { ProductSize } from '../../models';
 
@@ -6,8 +7,17 @@ type ProductSizeProps = {
 };
 
 const ButtonSize = ({ sizeData }: ProductSizeProps) => {
+  const isButtonDisabled = useMemo(() => {
+    if (sizeData.countInStock === 0) {
+      return true;
+    }
+    return false;
+  }, [sizeData]);
+
   return (
-    <StyledButtonSize>{`EU ${sizeData.size.toString()}`}</StyledButtonSize>
+    <StyledButtonSize
+      disabled={isButtonDisabled}
+    >{`EU ${sizeData.size.toString()}`}</StyledButtonSize>
   );
 };
 

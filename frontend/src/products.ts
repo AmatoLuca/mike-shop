@@ -22,7 +22,7 @@ const products = [
     rating: 4.5,
     numReviews: 12,
     sizes: [
-      { size: 40, countInStock: 2 },
+      { size: 40, countInStock: 0 },
       { size: 40.5, countInStock: 2 },
       { size: 41, countInStock: 2 },
       { size: 42, countInStock: 2 },
