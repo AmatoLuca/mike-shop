@@ -1,4 +1,5 @@
 export type ProductSize = {
+  id: number;
   size: number;
   countInStock: number;
 };
