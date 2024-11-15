@@ -62,7 +62,7 @@ const ProductSizes = ({ sizes }: ProductSizeProps) => {
 
   return (
     <StyledProductSizes>
-      {sizes.map((size) => (
+      {sizeState.map((size) => (
         <ButtonSize
           key={size.id}
           sizeData={size}

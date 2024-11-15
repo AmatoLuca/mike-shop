@@ -1,8 +1,8 @@
 import { StyledButtonSize } from '../ButtonSize/StyledButtonSize';
-import { ProductSize } from '../../models';
+import { SizesStateProps } from '../../models';
 
 type ProductSizeProps = {
-  sizeData: ProductSize;
+  sizeData: SizesStateProps;
   onSelectSize: (id: number) => void;
 };
 
@@ -17,6 +17,7 @@ const ButtonSize = ({ sizeData, onSelectSize }: ProductSizeProps) => {
     <StyledButtonSize
       disabled={isButtonDisabled}
       onClick={() => onSelectSize(sizeData.id)}
+      $isActive={sizeData.isActive}
     >{`EU ${sizeData.size.toString()}`}</StyledButtonSize>
   );
 };
