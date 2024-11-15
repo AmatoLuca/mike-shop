@@ -1,6 +1,5 @@
 import Flickity from 'react-flickity-component';
 import { StyledSliderMobile } from './StyledSliderMobile';
-//import { Product } from '../models';
 import { StyledCarouselCard } from '../Carousel/Carousel-Card/StyledCarouselCard';
 
 const flickityOptions = {

@@ -6,14 +6,16 @@ import useWindowWidth from '../../hooks/useWindowWidth';
 import Rating from '../../components/Rating/Rating';
 import Button from '../../components/Button/Button';
 import { PiHeartStraightLight } from 'react-icons/pi';
+import ProductSizes from '../../components/Product/ProductSizes/ProductSizes';
 
 const ProductScreen = () => {
   const windowWidth = useWindowWidth();
-  const isMobile = windowWidth <= 768;
+  //const isMobile = windowWidth <= 768;
+  const isMobile = windowWidth <= 900;
   const { id: productId } = useParams();
 
   const product = products.find((product) => product._id === productId);
-  console.log('@@@', product);
+  //console.log('@@@', product);
 
   return (
     <StyledProductScreen>
@@ -24,6 +26,8 @@ const ProductScreen = () => {
       </div>
 
       {isMobile && <SliderMobile product={product} />}
+
+      <ProductSizes sizes={product?.sizes || []} />
 
       <div className="product-btn-wrapper">
         <Button $inputColor={'black'}>{'Add to Bag'}</Button>

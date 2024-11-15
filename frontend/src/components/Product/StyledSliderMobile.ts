@@ -18,9 +18,10 @@ export const StyledSliderMobile = styled.div`
   }
 
   .flickity-slider {
-    position: absolute;
+    position: absolute; f
     width: 100%;
     height: 100%;
+    transform: translateX(0);
   }
 
   /* draggable */

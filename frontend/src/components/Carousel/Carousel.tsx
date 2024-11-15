@@ -5,7 +5,6 @@ import products from '../../products';
 import { Product } from '../models';
 
 const flickityOptions = {
-  //initialIndex: 2,
   draggable: true,
 };
 
