@@ -10,12 +10,10 @@ import ProductSizes from '../../components/Product/ProductSizes/ProductSizes';
 
 const ProductScreen = () => {
   const windowWidth = useWindowWidth();
-  //const isMobile = windowWidth <= 768;
   const isMobile = windowWidth <= 900;
   const { id: productId } = useParams();
 
   const product = products.find((product) => product._id === productId);
-  //console.log('@@@', product);
 
   return (
     <StyledProductScreen>
