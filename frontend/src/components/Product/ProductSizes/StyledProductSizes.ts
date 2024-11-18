@@ -6,4 +6,8 @@ export const StyledProductSizes = styled.div`
   grid-template-rows: auto;
   gap: 7px;
   padding: 24px;
+
+  @media (min-width: 992px) {
+    width: 100%;
+  }
 `;

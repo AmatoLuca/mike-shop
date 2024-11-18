@@ -1,14 +1,14 @@
 import Flickity from 'react-flickity-component';
-import { StyledSliderMobile } from './StyledSliderMobile';
-import { StyledCarouselCard } from '../Carousel/Carousel-Card/StyledCarouselCard';
+import { StyledProductSlider } from './StyledProductSlider';
+import { StyledCarouselCard } from '../../Carousel/Carousel-Card/StyledCarouselCard';
 
 const flickityOptions = {
   draggable: true,
 };
 
-const SliderMobile = ({ product }: any) => {
+const ProductSlider = ({ product }: any) => {
   return (
-    <StyledSliderMobile>
+    <StyledProductSlider>
       <Flickity
         className={'carousel'} // default ''
         elementType={'div'} // default 'div'
@@ -25,8 +25,8 @@ const SliderMobile = ({ product }: any) => {
           );
         })}
       </Flickity>
-    </StyledSliderMobile>
+    </StyledProductSlider>
   );
 };
 
-export default SliderMobile;
+export default ProductSlider;

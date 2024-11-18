@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSliderMobile = styled.div`
+export const StyledProductSlider = styled.div`
   margin-bottom: 70px;
 
   .flickity-enabled {
@@ -52,6 +52,7 @@ export const StyledSliderMobile = styled.div`
     background: hsla(0, 0%, 100%, 0.75);
     border: none;
     color: #333;
+    display: none !important;
   }
 
   .flickity-button:hover {
