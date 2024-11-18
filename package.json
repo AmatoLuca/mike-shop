@@ -1,0 +1,12 @@
+{
+  "name": "mike-shop",
+  "version": "1.0.0",
+  "description": "eCommerce application with the MERN stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Luca Amato",
+  "license": "MIT"
+}
