@@ -1,12 +1,17 @@
 import Flickity from 'react-flickity-component';
 import { StyledProductSlider } from './StyledProductSlider';
 import { StyledCarouselCard } from '../../Carousel/Carousel-Card/StyledCarouselCard';
+import { Product } from '../../../components/models';
+
+type productSlider = {
+  product: Product;
+};
 
 const flickityOptions = {
   draggable: true,
 };
 
-const ProductSlider = ({ product }: any) => {
+const ProductSlider = ({ product }: productSlider) => {
   return (
     <StyledProductSlider>
       <Flickity

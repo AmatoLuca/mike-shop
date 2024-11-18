@@ -1,3 +1,5 @@
+import { ProductSize } from '../Product/models';
+
 export type Product = {
   _id: string;
   name: string;
@@ -9,6 +11,7 @@ export type Product = {
   countInStock: number;
   rating: number;
   numReviews: number;
+  sizes: ProductSize[];
 };
 
 export type ProductsList = Product[];

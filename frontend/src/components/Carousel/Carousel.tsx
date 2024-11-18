@@ -1,14 +1,26 @@
+import { useState, useEffect } from 'react';
 import { StyledCarousel } from './StyledCarousel';
 import Flickity from 'react-flickity-component';
 import CarouselCard from './Carousel-Card/CarouselCard';
-import products from '../../products';
 import { Product } from '../models';
+import axios from 'axios';
 
 const flickityOptions = {
   draggable: true,
 };
 
 const Carousel = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('/api/products');
+      setProducts(data);
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <StyledCarousel>
       <Flickity
