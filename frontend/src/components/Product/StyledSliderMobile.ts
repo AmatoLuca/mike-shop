@@ -18,10 +18,9 @@ export const StyledSliderMobile = styled.div`
   }
 
   .flickity-slider {
-    position: absolute; f
+    position: absolute;
     width: 100%;
     height: 100%;
-    transform: translateX(0);
   }
 
   /* draggable */
@@ -166,5 +165,11 @@ export const StyledSliderMobile = styled.div`
 
   .flickity-page-dots .dot.is-selected {
     opacity: 1;
+  }
+
+  .carouselCardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
