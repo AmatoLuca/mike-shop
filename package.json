@@ -8,5 +8,11 @@
     "start": "node backend/server.js"
   },
   "author": "Luca Amato",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0"
+  }
 }
