@@ -13,7 +13,8 @@
   "author": "Luca Amato",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
