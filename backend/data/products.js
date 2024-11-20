@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Jordan Heir',
     images: [
       '/images/Jordan+Heir/JORDAN+HEIR+SERIES.png',
@@ -40,7 +39,6 @@ const products = [
     ],
   },
   {
-    _id: '2',
     name: 'Jordan One Take 5',
     images: [
       '/images/Jordan+One+Take+5/JORDAN+ONE+TAKE+5.jpeg',
@@ -80,7 +78,6 @@ const products = [
     ],
   },
   {
-    _id: '3',
     name: 'KD17 x Bink',
     images: [
       '/images/KD17+x+Bink/KD17+NRG.jpeg',
@@ -120,7 +117,6 @@ const products = [
     ],
   },
   {
-    _id: '4',
     name: 'Luka 2 Dragon Bridge',
     images: [
       '/images/Luka+2+Dragon+Bridge/JORDAN+LUKA+2+S.jpeg',
@@ -160,7 +156,6 @@ const products = [
     ],
   },
   {
-    _id: '5',
     name: 'Air Jordan 1 Low',
     images: [
       '/images/Nike+Air+Jordan+1+Low/AIR+JORDAN+1+LOW.jpeg',
@@ -200,7 +195,6 @@ const products = [
     ],
   },
   {
-    _id: '6',
     name: 'Nike G Cut 3 Electric',
     images: [
       '/images/Nike+G.+Cut+3+Electric/G.T.+CUT+3+OLY.jpeg',
@@ -240,7 +234,6 @@ const products = [
     ],
   },
   {
-    _id: '7',
     name: 'Nike Metcon 9',
     images: [
       '/images/Nike+Metcon+9/NIKE+METCON+9.jpeg',
@@ -279,7 +272,6 @@ const products = [
     ],
   },
   {
-    _id: '8',
     name: 'Nike Pegasus EasyOn Electric',
     images: [
       '/images/Nike+Pegasus+EasyOn+Electric/PEGASUS+EASYON+OLY.png',
@@ -319,7 +311,6 @@ const products = [
     ],
   },
   {
-    _id: '9',
     name: 'Tatum 2 Vortex',
     images: [
       '/images/Tatum+2+Vortex/JORDAN+TATUM+2.jpeg',
@@ -359,7 +350,6 @@ const products = [
     ],
   },
   {
-    _id: '10',
     name: 'LeBron XXI "Queen Conch"',
     images: [
       '/images/LeBron/LEBRON+XXI.png',
