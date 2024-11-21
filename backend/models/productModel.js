@@ -25,6 +25,26 @@ const reviewSchema = mongoose.Schema(
   }
 );
 
+const sizesSchema = mongoose.Schema(
+  {
+    id: {
+      type: Number,
+      required: true,
+    },
+    size: {
+      type: Number,
+      required: true,
+    },
+    countInStock: {
+      type: Number,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
 const productSchema = mongoose.Schema(
   {
     user: {
@@ -62,6 +82,7 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    sizes: [sizesSchema],
     rating: {
       type: Number,
       required: true,
