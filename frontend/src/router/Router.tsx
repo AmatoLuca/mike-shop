@@ -4,6 +4,8 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 import App from '../App';
 import HomeScreen from '../screens/Home/HomeScreen';
 import ProductScreen from '../screens/Product/ProductScreen';
@@ -18,7 +20,11 @@ const router = createBrowserRouter(
 );
 
 const Router = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 };
 
 export default Router;
