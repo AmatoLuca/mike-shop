@@ -2,6 +2,7 @@ import { ProductSize } from '../Product/models';
 
 export type Product = {
   _id: string;
+  user: string;
   name: string;
   images: string[];
   description: string;

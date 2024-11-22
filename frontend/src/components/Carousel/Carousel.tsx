@@ -1,35 +1,33 @@
-import { useState, useEffect } from 'react';
 import { StyledCarousel } from './StyledCarousel';
 import Flickity from 'react-flickity-component';
 import CarouselCard from './Carousel-Card/CarouselCard';
 import { Product } from '../models';
-import axios from 'axios';
+import { useGetProductsQuery } from '../../redux/slices/productsApiSlice';
 
 const flickityOptions = {
   draggable: true,
 };
 
 const Carousel = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const { data: products, isLoading, error }: any = useGetProductsQuery();
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get('/api/products');
-      setProducts(data);
-    };
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
-    fetchProducts();
-  }, []);
+  if (error) {
+    <div>{error?.data?.message || error?.error}</div>;
+  }
 
   return (
     <StyledCarousel>
       <Flickity
-        className={'carousel'} // default ''
-        elementType={'div'} // default 'div'
-        options={flickityOptions} // takes flickity options {}
-        disableImagesLoaded={false} // default false
-        reloadOnUpdate // default false
-        static // default false
+        className={'carousel'}
+        elementType={'div'}
+        options={flickityOptions}
+        disableImagesLoaded={false}
+        reloadOnUpdate
+        static
       >
         {products.map((imageData: Product) => {
           return (
