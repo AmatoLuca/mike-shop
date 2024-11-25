@@ -16,7 +16,7 @@ const Carousel = () => {
   }
 
   if (error) {
-    <div>{error?.data?.message || error?.error}</div>;
+    return <div>{error?.data?.message || error?.error}</div>;
   }
 
   return (
