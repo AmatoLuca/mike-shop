@@ -7,6 +7,7 @@ import { PiHeartStraightLight } from 'react-icons/pi';
 import ProductSizes from '../../components/Product/ProductSizes/ProductSizes';
 import { useGetProductDetailsQuery } from '../../redux/slices/productsApiSlice';
 import { ProductIdParams } from '../models';
+import Loader from '../../components/Loader/Loader';
 
 const ProductScreen = () => {
   const { id: productId } = useParams<ProductIdParams>();
@@ -20,7 +21,7 @@ const ProductScreen = () => {
     : { data: null, isLoading: false, error: null };
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <Loader />;
   }
 
   if (error) {

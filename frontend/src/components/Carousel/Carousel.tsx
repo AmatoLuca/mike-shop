@@ -3,6 +3,7 @@ import Flickity from 'react-flickity-component';
 import CarouselCard from './Carousel-Card/CarouselCard';
 import { Product } from '../models';
 import { useGetProductsQuery } from '../../redux/slices/productsApiSlice';
+import Loader from '../Loader/Loader';
 
 const flickityOptions = {
   draggable: true,
@@ -12,7 +13,7 @@ const Carousel = () => {
   const { data: products, isLoading, error }: any = useGetProductsQuery();
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <Loader />;
   }
 
   if (error) {
