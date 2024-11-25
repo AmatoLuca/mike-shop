@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { StyledProductScreen } from './StyledProductScreen';
 import { useParams } from 'react-router-dom';
 import ProductSlider from '../../components/Product/ProductSlider/ProductSlider';
@@ -6,22 +5,27 @@ import Rating from '../../components/Rating/Rating';
 import Button from '../../components/Button/Button';
 import { PiHeartStraightLight } from 'react-icons/pi';
 import ProductSizes from '../../components/Product/ProductSizes/ProductSizes';
-import axios from 'axios';
-import { Product } from '../../components/models';
+import { useGetProductDetailsQuery } from '../../redux/slices/productsApiSlice';
+import { ProductIdParams } from '../models';
 
 const ProductScreen = () => {
-  const [product, setProduct] = useState<Product>();
+  const { id: productId } = useParams<ProductIdParams>();
 
-  const { id: productId } = useParams();
+  const {
+    data: product,
+    isLoading,
+    error,
+  }: any = productId
+    ? useGetProductDetailsQuery(productId)
+    : { data: null, isLoading: false, error: null };
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${productId}`);
-      setProduct(data);
-    };
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
-    fetchProduct();
-  }, [productId]);
+  if (error) {
+    return <div>{error?.data?.message || error?.error}</div>;
+  }
 
   return (
     <>

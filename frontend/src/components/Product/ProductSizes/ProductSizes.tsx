@@ -51,10 +51,8 @@ const ProductSizes = ({ sizes }: ProductSizeProps) => {
   // Take sizes and for any size object update it and add isActive property
   // to manage here the logic for selected user size
   useEffect(() => {
-    const sizesCopy: any = [...sizes];
-
-    sizesCopy.forEach((size: SizesStateProps) => {
-      size.isActive = false;
+    const sizesCopy = sizes.map((size) => {
+      return { ...size, isActive: false };
     });
 
     setSizeState(sizesCopy);
