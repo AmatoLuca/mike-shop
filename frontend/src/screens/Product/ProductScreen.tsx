@@ -1,3 +1,4 @@
+import useShowMessage from '../../hooks/useShowMessage';
 import { StyledProductScreen } from './StyledProductScreen';
 import { useParams } from 'react-router-dom';
 import ProductSlider from '../../components/Product/ProductSlider/ProductSlider';
@@ -8,6 +9,8 @@ import ProductSizes from '../../components/Product/ProductSizes/ProductSizes';
 import { useGetProductDetailsQuery } from '../../redux/slices/productsApiSlice';
 import { ProductIdParams } from '../models';
 import Loader from '../../components/Loader/Loader';
+import Message from '../../components/Message/Message';
+import { MessageVariant } from '../../components/Message/models';
 
 const ProductScreen = () => {
   const { id: productId } = useParams<ProductIdParams>();
@@ -20,16 +23,17 @@ const ProductScreen = () => {
     ? useGetProductDetailsQuery(productId)
     : { data: null, isLoading: false, error: null };
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    return <div>{error?.data?.message || error?.error}</div>;
-  }
+  const { isShowMessage } = useShowMessage(error);
 
   return (
     <>
+      {isLoading && <Loader />}
+      {isShowMessage && (
+        <Message
+          variant={MessageVariant.error}
+          content={error?.data?.message || error?.error}
+        />
+      )}
       {product && (
         <StyledProductScreen>
           <div className="product-header">
