@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Color } from './models';
 
-export const StyledButton = styled.div<{ $inputColor: Color }>`
+export const StyledButton = styled.button<{
+  $inputColor: Color;
+}>`
   font-size: 16px;
   padding-top: 18px;
   padding-bottom: 18px;

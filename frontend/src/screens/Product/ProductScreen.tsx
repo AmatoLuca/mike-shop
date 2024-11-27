@@ -11,6 +11,7 @@ import { ProductIdParams } from '../models';
 import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 import { MessageVariant } from '../../components/Message/models';
+import NotInStockMessage from '../../components/NotInStockMessage/NotInStockMessage';
 
 const ProductScreen = () => {
   const { id: productId } = useParams<ProductIdParams>();
@@ -22,6 +23,8 @@ const ProductScreen = () => {
   }: any = productId
     ? useGetProductDetailsQuery(productId)
     : { data: null, isLoading: false, error: null };
+
+  const countInStock = product?.countInStock;
 
   const { isShowMessage } = useShowMessage(error);
 
@@ -37,6 +40,7 @@ const ProductScreen = () => {
       {product && (
         <StyledProductScreen>
           <div className="product-header">
+            {!countInStock && <NotInStockMessage />}
             <div className="product-name">{product?.name}</div>
             <div className="product-category">{product?.category}</div>
             <div className="product-price">{product?.price} &euro;</div>
@@ -49,7 +53,9 @@ const ProductScreen = () => {
               <ProductSizes sizes={product?.sizes || []} />
 
               <div className="product-btn-wrapper">
-                <Button $inputColor={'black'}>{'Add to Bag'}</Button>
+                <Button $inputColor={'black'} countInStock={countInStock}>
+                  {'Add to Bag'}
+                </Button>
                 <Button $inputColor={'white'}>
                   {'Favorite'} <PiHeartStraightLight />
                 </Button>
