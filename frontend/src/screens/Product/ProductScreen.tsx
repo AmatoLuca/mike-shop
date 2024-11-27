@@ -53,7 +53,11 @@ const ProductScreen = () => {
               <ProductSizes sizes={product?.sizes || []} />
 
               <div className="product-btn-wrapper">
-                <Button $inputColor={'black'} countInStock={countInStock}>
+                <Button
+                  $inputColor={'black'}
+                  countInStock={countInStock}
+                  product={product}
+                >
                   {'Add to Bag'}
                 </Button>
                 <Button $inputColor={'white'}>
