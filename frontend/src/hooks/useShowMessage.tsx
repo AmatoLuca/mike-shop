@@ -7,7 +7,7 @@ const useShowMessage = (isShowMessageProp: any) => {
     if (isShowMessage) {
       const timer = setTimeout(() => {
         setIsShowMessage(false);
-      }, 2500);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [isShowMessage]);
