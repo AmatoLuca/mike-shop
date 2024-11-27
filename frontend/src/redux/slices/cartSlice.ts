@@ -1,15 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../components/models';
+import { GlobalState } from '../models';
+import { updateCart } from '../../utils/cartUtils';
 
-const initialState = (() => {
+const initialState: GlobalState = (() => {
   // Be sure cart already present in localStorage, otherwise return a cartItems empty to initialize state
   const storedCart = localStorage.getItem('cart');
-  return storedCart ? JSON.parse(storedCart) : { cartItems: [] };
+  return storedCart
+    ? JSON.parse(storedCart)
+    : {
+        cartItems: [],
+        shippingPrice: '0.00',
+        itemsPrice: '0.00',
+        taxPrice: '0.00',
+        totalPrice: '0.00',
+      };
 })();
-
-const addDecimals = (num: number) => {
-  return (Math.round(num * 100) / 100).toFixed(2);
-};
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -30,30 +36,7 @@ const cartSlice = createSlice({
         state.cartItems = [...state.cartItems, itemFromPaylod];
       }
 
-      // Calculate Items Price
-      /* state.itemsPrice = addDecimals(
-        state.cartItems.reduce(
-          (acc: number, item: Product) => acc + item.price * item.qty,
-          0
-        )
-      ); */
-
-      // Calculate Shipping Price (If order is over 100$ then free, else $10 shipping)
-      state.shippingPrice = addDecimals(state.itemsPrice > 100 ? 0 : 10);
-
-      // Calculate Tax Price (15% tax)
-      state.taxPrice = addDecimals(
-        Number((0.15 * state.itemsPrice).toFixed(2))
-      );
-
-      // Calculate Total Price
-      state.totalPrice = (
-        Number(state.itemsPrice) +
-        Number(state.shippingPrice) +
-        Number(state.taxPrice)
-      ).toFixed(2);
-
-      localStorage.setItem('cart', JSON.stringify(state));
+      return updateCart(state);
     },
   },
 });
