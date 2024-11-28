@@ -13,6 +13,7 @@ export type Product = {
   rating: number;
   numReviews: number;
   sizes: ProductSize[];
+  qty?: number | undefined;
 };
 
 export type ProductsList = Product[];

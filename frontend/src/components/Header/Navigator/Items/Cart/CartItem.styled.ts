@@ -15,6 +15,6 @@ export const StyledCartItem = styled.div`
 
   &:hover {
     pointer: cursor;
-    background-color: #e5e5e5;
+    //background-color: #e5e5e5;
   }
 `;

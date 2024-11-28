@@ -22,7 +22,10 @@ export const updateCart = (state: GlobalState) => {
 
   // Calculate Items Price
   state.itemsPrice = addDecimals(
-    state.cartItems.reduce((acc: number, item: Product) => acc + item.price, 0)
+    state.cartItems.reduce(
+      (acc: number, item: Product) => acc + item.price * (item.qty ?? 1),
+      0
+    )
   );
 
   // Calculate Shipping Price (If order is over 100$ then free, else $10 shipping
