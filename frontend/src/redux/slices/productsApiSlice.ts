@@ -4,6 +4,8 @@ import { Product } from '../../components/models';
 
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    // @@Product[] = input parameter
+    // @@void = output parameter
     getProducts: builder.query<Product[], void>({
       query: () => ({
         url: PRODUCTS_URL,

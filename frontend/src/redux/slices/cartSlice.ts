@@ -4,16 +4,17 @@ import { GlobalState } from '../models';
 import { updateCart } from '../../utils/cartUtils';
 
 const initialState: GlobalState = (() => {
-  // Be sure cart already present in localStorage, otherwise return a cartItems empty to initialize state
+  // Be sure cart already present in localStorage,
+  // otherwise return a cartItems empty to initialize state
   const storedCart = localStorage.getItem('cart');
   return storedCart
     ? JSON.parse(storedCart)
     : {
         cartItems: [],
-        shippingPrice: '0.00',
-        itemsPrice: '0.00',
-        taxPrice: '0.00',
-        totalPrice: '0.00',
+        shippingPrice: null,
+        itemsPrice: null,
+        taxPrice: null,
+        totalPrice: null,
       };
 })();
 
