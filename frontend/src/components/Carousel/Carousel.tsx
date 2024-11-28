@@ -7,7 +7,7 @@ import useShowMessage from '../../hooks/useShowMessage';
 import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 import { MessageVariant } from '../../components/Message/models';
-import { GetProductsResponse } from '../../redux/slices/productsApiSlice';
+import { GetProductsResponse } from '../../redux/hooks';
 
 const flickityOptions = {
   draggable: true,

@@ -22,13 +22,5 @@ export const productApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-// useGetProductsQuery
-export type GetProductsResponse = ReturnType<typeof useGetProductsQuery>;
-
-// useGetProductDetailsQuery
-export type GetProductDetailsResponse = ReturnType<
-  typeof useGetProductDetailsQuery
->;
-
 export const { useGetProductsQuery, useGetProductDetailsQuery } =
   productApiSlice;

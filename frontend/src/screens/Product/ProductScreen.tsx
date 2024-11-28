@@ -12,21 +12,10 @@ import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 import { MessageVariant } from '../../components/Message/models';
 import NotInStockMessage from '../../components/NotInStockMessage/NotInStockMessage';
-import { GetProductDetailsResponse } from '../../redux/slices/productsApiSlice';
+import { GetProductDetailsResponse } from '../../redux/hooks';
 
 const ProductScreen = () => {
   const { id: productId } = useParams<ProductIdParams>();
-
-  /* const {
-    data: product,
-    isLoading,
-    error,
-  }: any = productId
-    ? useGetProductDetailsQuery(productId)
-    : { data: null, isLoading: false, error: null }; */
-
-  console.log('@@@product id:', productId);
-  console.log('@@@product id type:', typeof productId);
 
   const {
     data: product,
