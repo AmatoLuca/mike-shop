@@ -7,13 +7,18 @@ import useShowMessage from '../../hooks/useShowMessage';
 import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 import { MessageVariant } from '../../components/Message/models';
+import { GetProductsResponse } from '../../redux/slices/productsApiSlice';
 
 const flickityOptions = {
   draggable: true,
 };
 
 const Carousel = () => {
-  const { data: products, isLoading, error }: any = useGetProductsQuery();
+  const {
+    data: products,
+    isLoading,
+    error,
+  }: GetProductsResponse = useGetProductsQuery();
 
   const { isShowMessage } = useShowMessage(error);
 
