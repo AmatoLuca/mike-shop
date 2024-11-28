@@ -1,6 +1,20 @@
 import styled from 'styled-components';
 
 export const StyledFeatured = styled.section`
+  h3 {
+    font-size: 38px;
+    text-transform: uppercase;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 28px;
+    font-weight: 800;
+    letter-spacing: 0.09rem;
+
+    @media (min-width: 600px) {
+      padding-bottom: 36px;
+    }
+  }
+
   .featured {
     display: flex;
     flex-direction: column;

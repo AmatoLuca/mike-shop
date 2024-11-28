@@ -5,6 +5,7 @@ import lukaShoesImage from '../../../assets/images/sections/jordan-luka-shoes.jp
 const Featured = () => {
   return (
     <StyledFeatured>
+      <h3>Featured</h3>
       <div className="featured">
         <div className="featured__box-1">
           <img src={tatumImage} alt="tatum-player" />
