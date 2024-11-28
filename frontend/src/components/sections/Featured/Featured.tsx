@@ -1,6 +1,6 @@
 import { StyledFeatured } from './StyledFeatured';
-import tatumImage from '../../../../public/images/sections/jordan-tatum.jpg';
-import lukaShoesImage from '../../../../public/images/sections/jordan-luka-shoes.jpg';
+import tatumImage from '../../../assets/images/sections/jordan-tatum.jpg';
+import lukaShoesImage from '../../../assets/images/sections/jordan-luka-shoes.jpg';
 
 const Featured = () => {
   return (
