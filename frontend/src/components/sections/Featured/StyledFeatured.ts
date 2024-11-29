@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledFeatured = styled.section`
+  @media (min-width: 768px) {
+    padding-bottom: 100px;
+  }
+
   h3 {
     font-size: 38px;
     text-transform: uppercase;
