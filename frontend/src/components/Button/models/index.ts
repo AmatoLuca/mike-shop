@@ -8,4 +8,5 @@ export type ButtonComponentProps = {
   $inputColor: Color;
   countInStock?: number | undefined;
   product?: Product;
+  size?: number;
 };

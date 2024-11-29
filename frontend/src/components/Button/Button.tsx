@@ -11,18 +11,19 @@ const Button = ({
   $inputColor,
   countInStock,
   product,
+  size,
 }: ButtonComponentProps) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const addToCartHandler = useCallback(() => {
-    dispatch(addToCart({ ...product }));
+    dispatch(addToCart({ ...product, sizeChosen: size }));
     navigate('/cart');
-  }, [product, dispatch]);
+  }, [product, dispatch, size]);
 
   return (
     <>
-      {countInStock === 0 ? (
+      {countInStock === 0 || !size ? (
         <ButtonDisabled />
       ) : (
         <StyledButton $inputColor={$inputColor} onClick={addToCartHandler}>

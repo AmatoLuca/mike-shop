@@ -3,7 +3,8 @@ import { StyledProductSizes } from './StyledProductSizes';
 import { ProductSizeProps, SizesStateProps } from '../models';
 import ButtonSize from './ButtonSize/ButtonSize';
 
-const ProductSizes = ({ sizes }: ProductSizeProps) => {
+const ProductSizes = ({ sizes, selectSize }: ProductSizeProps) => {
+  // This state is about the managing on size from the list and make it uniqe by isActive property
   const [sizeState, setSizeState] = useState<SizesStateProps[]>([]);
 
   const selectSizeHandler = useCallback(
@@ -57,6 +58,12 @@ const ProductSizes = ({ sizes }: ProductSizeProps) => {
 
     setSizeState(sizesCopy);
   }, []);
+
+  // Here gets fired the handler to track the current size selected, used in ProductScreen component
+  useEffect(() => {
+    const sizeActive = sizeState.find((size) => size.isActive === true);
+    sizeActive && selectSize(sizeActive.size);
+  }, [sizeState]);
 
   return (
     <StyledProductSizes>

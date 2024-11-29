@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import useShowMessage from '../../hooks/useShowMessage';
 import { StyledProductScreen } from './StyledProductScreen';
 import { useParams } from 'react-router-dom';
@@ -15,6 +16,8 @@ import NotInStockMessage from '../../components/NotInStockMessage/NotInStockMess
 import { GetProductDetailsResponse } from '../../redux/hooks';
 
 const ProductScreen = () => {
+  const [sizeSelected, setSizeSelected] = useState<number>();
+
   const { id: productId } = useParams<ProductIdParams>();
 
   const {
@@ -26,6 +29,13 @@ const ProductScreen = () => {
   const countInStock = product?.countInStock;
 
   const { isShowMessage } = useShowMessage(error);
+
+  const sizeSelectHandler = useCallback(
+    (size: number) => {
+      setSizeSelected(size);
+    },
+    [sizeSelected]
+  );
 
   return (
     <>
@@ -49,13 +59,17 @@ const ProductScreen = () => {
 
           <div className="product-main">
             <div className="product-content">
-              <ProductSizes sizes={product?.sizes || []} />
+              <ProductSizes
+                sizes={product?.sizes || []}
+                selectSize={sizeSelectHandler}
+              />
 
               <div className="product-btn-wrapper">
                 <Button
                   $inputColor={'black'}
                   countInStock={countInStock}
                   product={product}
+                  size={sizeSelected}
                 >
                   {'Add to Bag'}
                 </Button>

@@ -11,4 +11,7 @@ export type SizesStateProps = {
   isActive: boolean;
 };
 
-export type ProductSizeProps = { sizes: ProductSize[] };
+export type ProductSizeProps = {
+  sizes: ProductSize[];
+  selectSize: (size: number) => void;
+};

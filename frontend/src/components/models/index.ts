@@ -14,6 +14,7 @@ export type Product = {
   numReviews: number;
   sizes: ProductSize[];
   qty?: number | undefined;
+  sizeChosen?: number;
 };
 
 export type ProductsList = Product[];
