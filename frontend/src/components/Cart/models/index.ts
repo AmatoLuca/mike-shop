@@ -1,4 +1,4 @@
-import { Product } from '../../../components/models';
+import { Product } from '../../models';
 
 export type CartProductComponentProps = {
   product: Product;

@@ -2,12 +2,12 @@ import { StyledCartScreen } from './StyledCartScreen';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { GetCart } from '../../redux/selectors';
-import CartHeader from './CartHeader/CartHeader';
-import NoItem from './NoItem/NoItem';
-import CartContentLayout from './CartContentLayout/CartContentWrapper';
-import CartProduct from './CartProduct/CartProduct';
-import CartSummary from './CartSummary/CartSummary';
-import CartAction from './CartAction/CartAction';
+import CartHeader from '../../components/Cart/CartHeader/CartHeader';
+import NoItem from '../../components/Cart/NoItem/NoItem';
+import CartContentLayout from '../../components/Cart/CartContentLayout/CartContentWrapper';
+import CartProduct from '../../components/Cart/CartProduct/CartProduct';
+import CartSummary from '../../components/Cart/CartSummary/CartSummary';
+import CartAction from '../../components/Cart/CartAction/CartAction';
 
 const CartScreen = () => {
   const CartState = GetCart();
