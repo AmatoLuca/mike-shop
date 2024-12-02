@@ -27,13 +27,31 @@ export const StyledCartProduct = styled.div`
       flex-direction: column;
       gap: 8px;
       padding-top: 4px;
+      flex-grow: 1;
 
-      .cart-product-price {
-        font-weight: 600;
-      }
+      .cart-product-info {
+        @media (min-width: 600px) {
+          display: flex;
+          justify-content: space-between;
+        }
 
-      .cart-product-name {
-        font-weight: 600;
+        .cart-product-price {
+          font-weight: 500;
+          padding-bottom: 8px;
+
+          @media (min-width: 600px) {
+            padding-bottom: 0px;
+            order: 2;
+          }
+        }
+
+        .cart-product-name {
+          font-weight: 500;
+
+          @media (min-width: 600px) {
+            order: 1;
+          }
+        }
       }
 
       .cart-product-type {
