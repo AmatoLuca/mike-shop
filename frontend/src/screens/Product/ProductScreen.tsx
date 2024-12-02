@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import ProductSlider from '../../components/Product/ProductSlider/ProductSlider';
 import Rating from '../../components/Rating/Rating';
 import Button from '../../components/Button/Button';
-import { PiHeartStraightLight } from 'react-icons/pi';
 import ProductSizes from '../../components/Product/ProductSizes/ProductSizes';
 import { useGetProductDetailsQuery } from '../../redux/slices/productsApiSlice';
 import { ProductIdParams } from '../models';
@@ -14,6 +13,7 @@ import Message from '../../components/Message/Message';
 import { MessageVariant } from '../../components/Message/models';
 import NotInStockMessage from '../../components/NotInStockMessage/NotInStockMessage';
 import { GetProductDetailsResponse } from '../../redux/hooks';
+import Favorite from '../../components/Button/Favorite';
 
 const ProductScreen = () => {
   const [sizeSelected, setSizeSelected] = useState<number>();
@@ -73,9 +73,7 @@ const ProductScreen = () => {
                 >
                   {'Add to Bag'}
                 </Button>
-                <Button $inputColor={'white'}>
-                  {'Favorite'} <PiHeartStraightLight />
-                </Button>
+                <Favorite />
               </div>
             </div>
             <div className="product-info">

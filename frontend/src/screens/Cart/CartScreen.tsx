@@ -7,6 +7,7 @@ import NoItem from './NoItem/NoItem';
 import CartContentWrapper from './CartContentWrapper/CartContentWrapper';
 import CartProduct from './CartProduct/CartProduct';
 import CartSummary from './CartSummary/CartSummary';
+import CartAction from './CartAction/CartAction';
 
 const CartScreen = () => {
   const CartState = GetCart();
@@ -26,6 +27,7 @@ const CartScreen = () => {
         </CartContentWrapper.Main>
         <CartContentWrapper.Summary>
           <CartSummary />
+          <CartAction />
         </CartContentWrapper.Summary>
       </CartContentWrapper>
     </StyledCartScreen>
