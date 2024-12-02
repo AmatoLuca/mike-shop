@@ -1,13 +1,17 @@
-import { StyledCartProduct } from './StyledCartProduct';
 import { CartProductComponentProps } from '../models';
+import { StyledCartProduct } from './StyledCartProduct';
+import { Link } from 'react-router-dom';
 
 const CartProduct = ({ product }: CartProductComponentProps) => {
   return (
     <StyledCartProduct>
       <div className="cart-product">
-        <div className="cart-product-image">
-          <img src={product.images[0]} alt={product.name} />
-        </div>
+        <Link to={`/product/${product._id}`}>
+          <div className="cart-product-image">
+            <img src={product.images[0]} alt={product.name} />
+          </div>
+        </Link>
+
         <div className="cart-product-details">
           <div className="cart-product-info">
             <div className="cart-product-price">{`${product.price} €`}</div>
