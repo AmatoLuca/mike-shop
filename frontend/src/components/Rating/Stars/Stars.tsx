@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledStars } from './Stars.styled';
 import { StarsComponentProps } from './models';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
