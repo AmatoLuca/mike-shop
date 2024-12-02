@@ -2,13 +2,15 @@
 import { StyledCartScreen } from './StyledCartScreen';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { GetCartItems } from '../../redux/selectors';
+import { GetCart /* GetCartItems  */ } from '../../redux/selectors';
 import CartHeader from './CartHeader/CartHeader';
 import NoItem from './NoItem/NoItem';
 import CartContentWrapper from './CartContentWrapper/CartContentWrapper';
+import CartProduct from './CartProduct/CartProduct';
 
 const CartScreen = () => {
-  const cartItemsState = GetCartItems();
+  //const cartItemsState = GetCartItems();
+  const CartState = GetCart();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,10 +18,14 @@ const CartScreen = () => {
   return (
     <StyledCartScreen>
       <CartHeader />
-      {cartItemsState.length === 0 && <NoItem />}
+      {CartState.cartItems.length === 0 && <NoItem />}
       <CartContentWrapper>
-        <CartContentWrapper.Main>df</CartContentWrapper.Main>
-        <CartContentWrapper.Summary>g</CartContentWrapper.Summary>
+        <CartContentWrapper.Main>
+          {CartState.cartItems.map((item) => {
+            return <CartProduct key={item._id} product={item} />;
+          })}
+        </CartContentWrapper.Main>
+        <CartContentWrapper.Summary>Summary</CartContentWrapper.Summary>
       </CartContentWrapper>
     </StyledCartScreen>
   );
