@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GetCart } from '../../redux/selectors';
 import CartHeader from './CartHeader/CartHeader';
 import NoItem from './NoItem/NoItem';
-import CartContentWrapper from './CartContentWrapper/CartContentWrapper';
+import CartContentLayout from './CartContentLayout/CartContentWrapper';
 import CartProduct from './CartProduct/CartProduct';
 import CartSummary from './CartSummary/CartSummary';
 import CartAction from './CartAction/CartAction';
@@ -19,17 +19,17 @@ const CartScreen = () => {
     <StyledCartScreen>
       <CartHeader />
       {CartState.cartItems.length === 0 && <NoItem />}
-      <CartContentWrapper>
-        <CartContentWrapper.Main>
+      <CartContentLayout>
+        <CartContentLayout.Main>
           {CartState.cartItems.map((item) => {
             return <CartProduct key={item._id} product={item} />;
           })}
-        </CartContentWrapper.Main>
-        <CartContentWrapper.Summary>
+        </CartContentLayout.Main>
+        <CartContentLayout.Summary>
           <CartSummary />
           <CartAction />
-        </CartContentWrapper.Summary>
-      </CartContentWrapper>
+        </CartContentLayout.Summary>
+      </CartContentLayout>
     </StyledCartScreen>
   );
 };

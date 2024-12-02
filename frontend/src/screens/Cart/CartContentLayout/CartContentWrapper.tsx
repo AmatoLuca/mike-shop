@@ -3,11 +3,11 @@ import { StyledCartContentWrapper } from './StyledCartContentWrapper';
 import CartContentMain from './CartContentMain/CartContentMain';
 import CartContentSummary from './CartContentSummary/CartContentSummary';
 
-const CartContentWrapper = ({ children }: { children: React.ReactNode }) => {
+const CartContentLayout = ({ children }: { children: React.ReactNode }) => {
   return <StyledCartContentWrapper>{children}</StyledCartContentWrapper>;
 };
 
-CartContentWrapper.Main = CartContentMain;
-CartContentWrapper.Summary = CartContentSummary;
+CartContentLayout.Main = CartContentMain;
+CartContentLayout.Summary = CartContentSummary;
 
-export default CartContentWrapper;
+export default CartContentLayout;
