@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import useShowMessage from '../../hooks/useShowMessage';
 import { StyledProductScreen } from './StyledProductScreen';
 import { useParams } from 'react-router-dom';
@@ -14,9 +14,13 @@ import { MessageVariant } from '../../components/Message/models';
 import NotInStockMessage from '../../components/NotInStockMessage/NotInStockMessage';
 import { GetProductDetailsResponse } from '../../redux/hooks';
 import Favorite from '../../components/Button/Favorite';
+import { GetCart } from '../../redux/selectors';
+import { Product } from '../../components/models';
+import { ProductSize } from '../../components/Product/models';
 
 const ProductScreen = () => {
   const [sizeSelected, setSizeSelected] = useState<number>();
+  const CartState = GetCart();
 
   const { id: productId } = useParams<ProductIdParams>();
 
@@ -29,6 +33,31 @@ const ProductScreen = () => {
   const countInStock = product?.countInStock;
 
   const { isShowMessage } = useShowMessage(error);
+
+  const isProductOutOfStock = useMemo(() => {
+    let isOutOfStock = false;
+
+    const targetProduct = CartState.cartItems.find((item: Product) => {
+      return item._id === productId && item.sizeChosen === sizeSelected;
+    });
+
+    const productInStock = targetProduct?.sizes.find((target: ProductSize) => {
+      return target.size === sizeSelected;
+    });
+
+    const quantityCurrentlyIntoCart = targetProduct?.qty;
+
+    if (productInStock && quantityCurrentlyIntoCart) {
+      quantityCurrentlyIntoCart >= productInStock.countInStock
+        ? (isOutOfStock = true)
+        : (isOutOfStock = false);
+    }
+
+    return isOutOfStock;
+  }, [CartState, productId, sizeSelected]);
+
+  const { isShowMessage: isOutOfStockWarning } =
+    useShowMessage(isProductOutOfStock);
 
   const sizeSelectHandler = useCallback(
     (size: number) => {
@@ -46,6 +75,7 @@ const ProductScreen = () => {
           content={error?.data?.message || error?.error}
         />
       )}
+
       {product && (
         <StyledProductScreen>
           <div className="product-header">
@@ -57,6 +87,14 @@ const ProductScreen = () => {
 
           <ProductSlider product={product} />
 
+          {isOutOfStockWarning && (
+            <Message
+              variant={MessageVariant.error}
+              content={
+                "There's no more availability in stock for this Product. Sorry!"
+              }
+            />
+          )}
           <div className="product-main">
             <div className="product-content">
               <ProductSizes
@@ -70,6 +108,7 @@ const ProductScreen = () => {
                   countInStock={countInStock}
                   product={product}
                   size={sizeSelected}
+                  isOutOfStock={isProductOutOfStock}
                 >
                   {'Add to Bag'}
                 </Button>

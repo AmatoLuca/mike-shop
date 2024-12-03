@@ -63,7 +63,7 @@ const ProductSizes = ({ sizes, selectSize }: ProductSizeProps) => {
   useEffect(() => {
     const sizeActive = sizeState.find((size) => size.isActive === true);
     sizeActive && selectSize(sizeActive.size);
-  }, [sizeState]);
+  }, [sizeState, selectSize]);
 
   return (
     <StyledProductSizes>

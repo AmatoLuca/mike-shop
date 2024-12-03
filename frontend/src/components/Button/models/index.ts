@@ -9,4 +9,5 @@ export type ButtonComponentProps = {
   countInStock?: number | undefined;
   product?: Product;
   size?: number;
+  isOutOfStock?: boolean;
 };

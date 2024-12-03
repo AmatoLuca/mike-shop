@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { StyledButton } from './StyledButton';
 import ButtonDisabled from './ButtonDisabled';
 import { ButtonComponentProps } from './models';
@@ -12,9 +12,17 @@ const Button = ({
   countInStock,
   product,
   size,
+  isOutOfStock,
 }: ButtonComponentProps) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isButtonDisabled = useMemo(() => {
+    if (countInStock === 0 || !size || isOutOfStock) {
+      return true;
+    }
+    return false;
+  }, [countInStock, size, isOutOfStock]);
 
   const addToCartHandler = useCallback(() => {
     dispatch(addToCart({ ...product, sizeChosen: size }));
@@ -23,7 +31,7 @@ const Button = ({
 
   return (
     <>
-      {countInStock === 0 || !size ? (
+      {isButtonDisabled ? (
         <ButtonDisabled />
       ) : (
         <StyledButton $inputColor={$inputColor} onClick={addToCartHandler}>
