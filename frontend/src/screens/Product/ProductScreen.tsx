@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import useShowMessage from '../../hooks/useShowMessage';
 import { StyledProductScreen } from './StyledProductScreen';
 import { useParams } from 'react-router-dom';
