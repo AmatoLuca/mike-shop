@@ -13,7 +13,7 @@ export type Product = {
   rating: number;
   numReviews: number;
   sizes: ProductSize[];
-  qty?: number | undefined;
+  qty: number;
   sizeChosen?: number;
 };
 

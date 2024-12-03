@@ -40,6 +40,11 @@ const productSchema = mongoose.Schema(
       default: 0,
     },
     sizes: [sizesSchema],
+    qty: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     rating: {
       type: Number,
       required: true,

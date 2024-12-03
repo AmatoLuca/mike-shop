@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../components/models';
 import { GlobalState } from '../models';
 import { updateCart } from '../../utils/cartUtils';
+const CLEAR = '0.00';
 
 const initialState: GlobalState = (() => {
   // Be sure cart already present in localStorage,
@@ -11,10 +12,10 @@ const initialState: GlobalState = (() => {
     ? JSON.parse(storedCart)
     : {
         cartItems: [],
-        shippingPrice: null,
-        itemsPrice: null,
-        taxPrice: null,
-        totalPrice: null,
+        shippingPrice: CLEAR,
+        itemsPrice: CLEAR,
+        taxPrice: CLEAR,
+        totalPrice: CLEAR,
       };
 })();
 
@@ -23,18 +24,25 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemFromPaylod = action.payload;
+      const itemFromPaylod: Product = action.payload;
 
       const existItem = state.cartItems.find(
-        (cartItem: Product) => cartItem._id === itemFromPaylod._id
+        (cartItem: Product) =>
+          cartItem._id === itemFromPaylod._id &&
+          cartItem.sizeChosen === itemFromPaylod.sizeChosen
       );
 
       if (existItem) {
+        // Se il prodotto esiste con lo stesso ID e dimensione, aggiorna la quantità
         state.cartItems = state.cartItems.map((cartItem: Product) =>
-          cartItem._id === existItem._id ? itemFromPaylod : cartItem
+          cartItem._id === existItem._id &&
+          cartItem.sizeChosen === existItem.sizeChosen
+            ? { ...cartItem, qty: cartItem.qty + 1 }
+            : cartItem
         );
       } else {
-        state.cartItems = [...state.cartItems, itemFromPaylod];
+        // Se il prodotto non esiste, aggiungilo al carrello con quantità 1
+        state.cartItems = [...state.cartItems, { ...itemFromPaylod, qty: 1 }];
       }
 
       return updateCart(state);
