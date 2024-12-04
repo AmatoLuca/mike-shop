@@ -1,6 +1,7 @@
 import { CartProductComponentProps } from '../models';
 import { StyledCartProduct } from './StyledCartProduct';
 import { Link } from 'react-router-dom';
+import Widjet from '../Widjet/Widjet';
 
 const CartProduct = ({ product }: CartProductComponentProps) => {
   return (
@@ -21,6 +22,8 @@ const CartProduct = ({ product }: CartProductComponentProps) => {
           <div className="cart-product-size">{`Size ${product.sizeChosen}`}</div>
         </div>
       </div>
+
+      <Widjet />
     </StyledCartProduct>
   );
 };
