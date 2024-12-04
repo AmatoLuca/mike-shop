@@ -5,7 +5,7 @@ import { updateCart } from '../../utils/cartUtils';
 const CLEAR = '0.00';
 
 const initialState: GlobalState = (() => {
-  // Be sure cart already present in localStorage,
+  // Make sure cart already present in localStorage,
   // otherwise return a cartItems empty to initialize state
   const storedCart = localStorage.getItem('cart');
   return storedCart
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
       );
 
       if (existItem) {
-        // Se il prodotto esiste con lo stesso ID e dimensione, aggiorna la quantità
+        // If the product exists with the same ID and size, update the quantity
         state.cartItems = state.cartItems.map((cartItem: Product) =>
           cartItem._id === existItem._id &&
           cartItem.sizeChosen === existItem.sizeChosen
@@ -41,7 +41,7 @@ const cartSlice = createSlice({
             : cartItem
         );
       } else {
-        // Se il prodotto non esiste, aggiungilo al carrello con quantità 1
+        // If the product does not exist, add it to the cart with quantity 1
         state.cartItems = [...state.cartItems, { ...itemFromPaylod, qty: 1 }];
       }
 
