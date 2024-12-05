@@ -7,20 +7,6 @@ export const addDecimals = (num: number) => {
 
 export const updateCart = (state: GlobalState) => {
   // Calculate Items Price
-  /* state.itemsPrice = addDecimals(
-        state.cartItems.reduce(
-          (acc: number, item: Product) => acc + item.price * item.qty,
-          0
-        )
-      ); */
-
-  // Calculate Shipping Price (If order is over 100$ then free, else $10 shipping
-  ///state.shippingPrice = addDecimals(state.itemsPrice > 100 ? 0 : 10);
-
-  // Calculate Tax Price (15% tax)
-  //state.taxPrice = addDecimals(Number((0.15 * state.itemsPrice).toFixed(2)));
-
-  // Calculate Items Price
   state.itemsPrice = addDecimals(
     state.cartItems.reduce(
       (acc: number, item: Product) => acc + item.price * (item.qty ?? 1),
