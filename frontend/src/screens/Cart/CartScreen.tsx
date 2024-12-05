@@ -1,6 +1,4 @@
 import { StyledCartScreen } from './StyledCartScreen';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { GetCart } from '../../redux/selectors';
 import CartHeader from '../../components/Cart/CartHeader/CartHeader';
 import NoItem from '../../components/Cart/NoItem/NoItem';
@@ -11,9 +9,6 @@ import CartAction from '../../components/Cart/CartAction/CartAction';
 
 const CartScreen = () => {
   const CartState = GetCart();
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   return (
     <StyledCartScreen>
