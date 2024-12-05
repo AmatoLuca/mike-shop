@@ -23,7 +23,7 @@ const CartProduct = ({ product }: CartProductComponentProps) => {
         </div>
       </div>
 
-      <Widjet />
+      <Widjet product={product} />
     </StyledCartProduct>
   );
 };

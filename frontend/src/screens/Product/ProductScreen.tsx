@@ -34,6 +34,8 @@ const ProductScreen = () => {
 
   const { isShowMessage } = useShowMessage(error);
 
+  // Check if a product is out of stock and prevent
+  // to choose a product that can be not available
   const isProductOutOfStock = useMemo(() => {
     let isOutOfStock = false;
 
