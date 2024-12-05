@@ -16,7 +16,8 @@ export const StyledWidjet = styled.div`
       display: flex;
       justify-content: space-between;
 
-      .widjet-btn-minus {
+      .widjet-btn-minus,
+      .widjet-btn-trash {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,6 +29,7 @@ export const StyledWidjet = styled.div`
         background-color: #ffff;
         border: 1px solid transparent;
         border-radius: 50%;
+        font-size: 16px;
 
         &:hover {
           background-color: #e5e5e5;
@@ -54,6 +56,7 @@ export const StyledWidjet = styled.div`
         background-color: #ffff;
         border: 1px solid transparent;
         border-radius: 50%;
+        font-size: 16px;
 
         &:hover {
           background-color: #e5e5e5;
@@ -75,6 +78,7 @@ export const StyledWidjet = styled.div`
     background-color: #ffff;
     border: 1px solid #e5e5e5;
     border-radius: 50%;
+    font-size: 15px;
 
     &:hover {
       background-color: #e5e5e5;
@@ -82,7 +86,7 @@ export const StyledWidjet = styled.div`
     }
 
     svg {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 `;
