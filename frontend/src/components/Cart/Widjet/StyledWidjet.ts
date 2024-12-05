@@ -17,6 +17,9 @@ export const StyledWidjet = styled.div`
       justify-content: space-between;
 
       .widjet-btn-minus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 8px;
         height: 40px;
         width: 40px;
@@ -40,6 +43,9 @@ export const StyledWidjet = styled.div`
       }
 
       .widjet-btn-plus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 8px;
         height: 40px;
         width: 40px;
