@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledPayButton = styled.button`
+export const StyledPayButtonDisabled = styled.div`
   font-size: 16px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -12,14 +12,13 @@ export const StyledPayButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border: 1.5px solid black;
-  background-color: rgb(17, 17, 17);
+  border: 1.5px solid rgb(245, 245, 245);
+  background-color: rgb(245, 245, 245);
   letter-spacing: 0.06rem;
-  color: #ffff;
+  color: rgb(117, 117, 117);
   width: 100%;
 
   &:hover {
-    cursor: pointer;
-    background-color: rgb(73 73 73);
+    cursor: default;
   }
 `;

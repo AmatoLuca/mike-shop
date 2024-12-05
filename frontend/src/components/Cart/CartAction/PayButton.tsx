@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { StyledPayButton } from './StyledPayButton';
 
 const PayButton = () => {
