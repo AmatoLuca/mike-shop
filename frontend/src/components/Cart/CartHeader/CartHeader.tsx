@@ -1,10 +1,18 @@
+import { useMemo } from 'react';
 import { StyledCartHeader } from './StyledCartHeader';
 import { GetCart } from '../../../redux/selectors';
+import { Product } from '../../models';
 
 const CartHeader = () => {
   const CartState = GetCart();
-  const itemsQuantity = CartState.cartItems.length;
   const totalPrice = CartState.totalPrice;
+
+  const itemsQuantity = useMemo(() => {
+    return CartState.cartItems.reduce(
+      (acc: number, item: Product) => acc + item.qty,
+      0
+    );
+  }, [CartState]);
 
   return (
     <StyledCartHeader>
