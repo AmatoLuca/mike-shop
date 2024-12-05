@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Product } from '../../components/models';
 import { GlobalState } from '../models';
 import { updateCart } from '../../utils/cartUtils';
+//import { addDecimals } from '../../utils/cartUtils';
 const CLEAR = '0.00';
 
 const initialState: GlobalState = (() => {
@@ -47,9 +48,40 @@ const cartSlice = createSlice({
 
       return updateCart(state);
     },
+
+    removeFromCart: (state, action) => {
+      const itemToRemove = state.cartItems.find((item: Product) => {
+        return (
+          item._id === action.payload._id &&
+          item.sizeChosen === action.payload.sizeChosen
+        );
+      });
+
+      if (itemToRemove) {
+        if (itemToRemove?.qty === 1) {
+          state.cartItems = state.cartItems.filter((item: Product) => {
+            return item._id !== action.payload._id;
+          });
+          return updateCart(state);
+        } else if (itemToRemove.qty > 1) {
+          state.cartItems = state.cartItems.map((item: Product) => {
+            if (
+              item._id === itemToRemove._id &&
+              item.sizeChosen === itemToRemove.sizeChosen
+            ) {
+              return { ...item, qty: item.qty - 1 };
+            } else {
+              return item;
+            }
+          });
+          localStorage.setItem('cart', JSON.stringify(state));
+        }
+        //return state;
+      }
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

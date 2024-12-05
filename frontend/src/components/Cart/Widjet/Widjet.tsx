@@ -5,11 +5,11 @@ import { FaMinus } from 'react-icons/fa6';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { FaRegHeart } from 'react-icons/fa6';
 import { CartProductComponentProps } from '../models';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { Product } from '../../models';
 import useCheckProductOutOfStock from '../../../hooks/useCheckProductOutOfStock';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../redux/slices/cartSlice';
+import { addToCart, removeFromCart } from '../../../redux/slices/cartSlice';
 import useShowMessage from '../../../hooks/useShowMessage';
 import Message from './Message/Message';
 const NOT_IN_STOCK_MESSAGE =
@@ -39,27 +39,24 @@ const Widjet = ({ product }: CartProductComponentProps) => {
         dispatch(addToCart({ ...item, qty: quantity + 1 }));
       }
     },
-    [isTheQuantityOutOfStock]
+    [isTheQuantityOutOfStock, dispatch]
   );
 
-  const TrashButton = (
+  const removeFromCartHandler = useCallback(
+    (product: Product) => {
+      dispatch(removeFromCart(product));
+    },
+    [dispatch]
+  );
+
+  const DeleteButton = (
     <button
-      className="widjet-btn-trash"
-      onClick={() => console.log('@@ Trash!')}
+      className="widjet-btn-minus"
+      onClick={() => removeFromCartHandler(product)}
     >
-      <FaRegTrashCan />
+      {qty > 1 ? <FaMinus /> : <FaRegTrashCan />}
     </button>
   );
-
-  const MinusButton = (
-    <button className="widjet-btn-minus">
-      <FaMinus />
-    </button>
-  );
-
-  useEffect(() => {
-    console.log('@@@ product:', product);
-  }, [product]);
 
   return (
     <>
@@ -67,8 +64,7 @@ const Widjet = ({ product }: CartProductComponentProps) => {
       <StyledWidjet>
         <div className="widjet-container">
           <div className="widjet-inner">
-            {qty > 1 ? MinusButton : TrashButton}
-
+            {DeleteButton}
             <div className="widjet-counter">{product.qty}</div>
             <button
               className="widjet-btn-plus"
