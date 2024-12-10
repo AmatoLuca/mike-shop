@@ -1,5 +1,6 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import User from '../models/userModel.js';
+import jwt from 'jsonwebtoken';
 
 /* 
    @desc    Auth user & get token
@@ -11,6 +12,20 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '30d',
+    });
+
+    // Set JWT as HTTP-Only cookie
+    // We don't need to send back JWT to client each time we hit this route
+    // but automatically we are gonna ship the token true cookie (or just say, we store it in http cookie) http without storing it locally
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'development',
+      sameSite: 'strict',
+      maxAge: 30 * 24 * 60 * 1000, // 30 Days
+    });
+
     res.json({
       _id: user._id,
       name: user.name,
