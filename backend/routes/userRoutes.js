@@ -4,7 +4,7 @@ import {
   authUser,
   registerUser,
   logoutUser,
-  getUserprofile,
+  getUserProfile,
   updateUserProfile,
   getUsers,
   getUserByID,
@@ -19,7 +19,7 @@ router.post('/logout', logoutUser);
 router.post('/auth', authUser);
 router
   .route('/profile')
-  .get(protect, getUserprofile)
+  .get(protect, getUserProfile)
   .put(protect, updateUserProfile);
 router
   .route('/:id')

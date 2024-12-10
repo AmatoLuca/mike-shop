@@ -81,7 +81,7 @@ const logoutUser = asyncHandler(async (req, res) => {
    @route   POST /api/users/profile
    @access  Private
 */
-const getUserprofile = asyncHandler(async (req, res) => {
+const getUserProfile = asyncHandler(async (req, res) => {
   res.send('get user profile');
 });
 
@@ -134,7 +134,7 @@ export {
   authUser,
   registerUser,
   logoutUser,
-  getUserprofile,
+  getUserProfile,
   updateUserProfile,
   getUsers,
   getUserByID,
