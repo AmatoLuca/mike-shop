@@ -12,3 +12,5 @@ export const GetCartInfoPrices = () =>
       state.cart.taxPrice,
       state.cart.totalPrice;
   });
+
+export const GetUserInfo = () => UseAppSelector((state) => state.auth.userInfo);
