@@ -7,3 +7,10 @@ export type GlobalState = {
   taxPrice: string | null;
   totalPrice: string | null;
 };
+
+export type UserInfoState = {
+  userInfo: {
+    email: string | null;
+    password: string | null;
+  };
+};
