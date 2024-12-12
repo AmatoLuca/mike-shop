@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { StyledUserAuthenticated } from './StyledUserAuthenticated';
 import { GetUserInfo } from '../../../../../redux/selectors';
 
@@ -13,6 +13,11 @@ const UserAuthenticated = () => {
   const handleMouseLeave = () => {
     setIsOpen(false);
   };
+
+  const logoutHandler = useCallback(() => {
+    console.log('@@@logout');
+  }, []);
+
   return (
     <StyledUserAuthenticated>
       <div
@@ -25,7 +30,9 @@ const UserAuthenticated = () => {
           <div className="dropdown-menu">
             <div className="filler"></div>
             <div className="dropdown-item">Profile</div>
-            <div className="dropdown-item">Logout</div>
+            <div className="dropdown-item" onClick={logoutHandler}>
+              Logout
+            </div>
           </div>
         )}
       </div>
