@@ -12,5 +12,6 @@ export type UserInfoState = {
   userInfo: {
     email: string | null;
     password: string | null;
+    name?: string | null;
   };
 };

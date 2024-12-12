@@ -14,7 +14,7 @@ export const StyleFavouritesItem = styled.div`
   }
 
   &:hover {
-    pointer: cursor;
+    cursor: pointer;
     background-color: #e5e5e5;
   }
 `;

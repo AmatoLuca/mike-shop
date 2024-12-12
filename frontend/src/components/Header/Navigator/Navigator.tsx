@@ -5,8 +5,12 @@ import UserItem from './Items/User/UserItem';
 import CartItem from './Items/Cart/CartItem';
 import { StyledNavigator } from './Navigator.styled';
 import { Link } from 'react-router-dom';
+import UserAuthenticated from './Items/UserAuthenticated/UserAuthenticated';
+import { GetUserInfo } from '../../../redux/selectors';
 
 const Navigator = () => {
+  const UserInfoState = GetUserInfo();
+
   return (
     <StyledNavigator>
       <Link to={`/`}>
@@ -20,9 +24,13 @@ const Navigator = () => {
           <FavouritesItem />
         </li>
         <li className="nav__menu__item">
-          <Link to={`/login`}>
-            <UserItem />
-          </Link>
+          {UserInfoState?.email ? (
+            <UserAuthenticated />
+          ) : (
+            <Link to={`/login`}>
+              <UserItem />
+            </Link>
+          )}
         </li>
         <li className="nav__menu__item">
           <Link to={`/cart`}>

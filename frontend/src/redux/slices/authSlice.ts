@@ -3,14 +3,25 @@ import { UserInfoState } from '../models';
 
 const initialState: UserInfoState = (() => {
   const userInfo = localStorage.getItem('userInfo');
-  return userInfo
-    ? JSON.parse(userInfo)
-    : {
-        userInfo: {
-          email: null,
-          password: null,
-        },
-      };
+
+  if (userInfo) {
+    const parsing = JSON.parse(userInfo);
+    return {
+      userInfo: {
+        email: parsing.email,
+        password: parsing.password,
+        name: parsing.name,
+      },
+    };
+  } else {
+    return {
+      userInfo: {
+        email: null,
+        password: null,
+        name: null,
+      },
+    };
+  }
 })();
 
 const authSlice = createSlice({

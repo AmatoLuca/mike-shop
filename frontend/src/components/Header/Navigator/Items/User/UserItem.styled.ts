@@ -6,7 +6,7 @@ export const StyledUserItem = styled.div`
   color: #111111;
 
   &:hover {
-    pointer: cursor;
+    cursor: pointer;
     color: #707072;
   }
 
