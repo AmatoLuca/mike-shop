@@ -1,21 +1,23 @@
 import { useState, useCallback, useEffect } from 'react';
-import { StyledLogin } from './StyledLogin';
+import { StyledRegister } from './StyledRegister';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useLoginMutation } from '../../../redux/slices/usersApiSlice';
+import { useRegisterMutation } from '../../../redux/slices/usersApiSlice';
 import { setCredentials } from '../../../redux/slices/authSlice';
-import { LoginPostRequest } from '../../../redux/hooks';
+import { RegisterPostRequest } from '../../../redux/hooks';
 import { GetUserInfo } from '../../../redux/selectors';
 import useShowMessage from '../../../hooks/useShowMessage';
 import Message from '../../../components/Message/Message';
 import { MessageVariant } from '../../../components/Message/models';
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErorrMessage] = useState<string | null>(null);
+  const [name, setName] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const [login, { isLoading }]: LoginPostRequest = useLoginMutation();
+  const [register, { isLoading }]: RegisterPostRequest = useRegisterMutation();
 
   const dispatch = useDispatch();
 
@@ -33,22 +35,38 @@ const Login = () => {
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      try {
-        const res = await login({
-          userInfo: {
-            email: email,
-            password: password,
-          },
-        }).unwrap();
+      if (password !== confirmPassword) {
+        setErrorMessage("The password you've insert is not correct");
+        return;
+      } else {
+        try {
+          const res = await register({
+            userInfo: {
+              email: email,
+              password: password,
+              name: name,
+            },
+          }).unwrap();
 
-        dispatch(setCredentials(res));
-        navigate(redirect);
-      } catch (error: any) {
-        setErorrMessage(error.data.message);
-        console.log('@@@ Error', error);
+          dispatch(setCredentials(res));
+          navigate(redirect);
+        } catch (error: any) {
+          setErrorMessage(error.data.message);
+          console.log('@@@ Error', error);
+        }
       }
     },
-    [UserInfoState, dispatch, navigate, login, setCredentials, email, password]
+    [
+      UserInfoState,
+      dispatch,
+      navigate,
+      Register,
+      setCredentials,
+      email,
+      password,
+      name,
+      confirmPassword,
+    ]
   );
 
   useEffect(() => {
@@ -65,9 +83,19 @@ const Login = () => {
           content={errorMessage || 'Something wrong with Login action.'}
         />
       )}
-      <StyledLogin>
-        <h1>Enter your email and password to sign in.</h1>
+      <StyledRegister>
+        <h1>It's better as a member. Enter your credentials to join us.</h1>
         <form onSubmit={submitHandler}>
+          <div className="form-row">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
           <div className="form-row">
             <input
               type="email"
@@ -88,27 +116,35 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div className="form-row">
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
 
           <div className="form-row login-btn-row">
             {isLoading ? (
               <div className="loader"></div>
             ) : (
-              <button type="submit">Sign In</button>
+              <button type="submit">Join Us</button>
             )}
           </div>
 
           <div className="form-row login-register">
-            <span>New Member?</span>
-            <Link
-              to={redirect ? `/register?redirect=${redirect}` : '/register'}
-            >
-              Join Us
+            <span>Already a member?</span>
+            <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+              Sign Up
             </Link>
           </div>
         </form>
-      </StyledLogin>
+      </StyledRegister>
     </>
   );
 };
 
-export default Login;
+export default Register;
