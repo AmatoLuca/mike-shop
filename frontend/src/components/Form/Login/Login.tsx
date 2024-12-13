@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../../../redux/slices/usersApiSlice';
 import { setCredentials } from '../../../redux/slices/authSlice';
-import { LoginPostRequestBody } from '../../../redux/hooks';
+import { LoginPostRequest } from '../../../redux/hooks';
 import { GetUserInfo } from '../../../redux/selectors';
 import useShowMessage from '../../../hooks/useShowMessage';
 import Message from '../../../components/Message/Message';
@@ -15,7 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErorrMessage] = useState<string | null>(null);
 
-  const [login, { isLoading }]: LoginPostRequestBody = useLoginMutation();
+  const [login, { isLoading }]: LoginPostRequest = useLoginMutation();
 
   const dispatch = useDispatch();
 

@@ -1,10 +1,19 @@
 import { useState, useCallback } from 'react';
 import { StyledUserAuthenticated } from './StyledUserAuthenticated';
 import { GetUserInfo } from '../../../../../redux/selectors';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useLogoutMutation } from '../../../../../redux/slices/usersApiSlice';
+import { logout } from '../../../../../redux/slices/authSlice';
 
 const UserAuthenticated = () => {
   const [isOpen, setIsOpen] = useState(false);
   const UserInfoState = GetUserInfo();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [logoutApiCall] = useLogoutMutation();
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -14,8 +23,14 @@ const UserAuthenticated = () => {
     setIsOpen(false);
   };
 
-  const logoutHandler = useCallback(() => {
-    console.log('@@@logout');
+  const logoutHandler = useCallback(async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate('/login');
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (
