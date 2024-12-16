@@ -13,7 +13,7 @@ import { MessageVariant } from '../../../components/Message/models';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErorrMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const [login, { isLoading }]: LoginPostRequest = useLoginMutation();
 
@@ -33,8 +33,8 @@ const Login = () => {
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      if (email === '' && password === '') {
-        setErorrMessage(
+      if (email === '' || password === '') {
+        setErrorMessage(
           'Please fill in all required fields to ensure your submission is complete. Thank you!'
         );
         return;
@@ -51,7 +51,7 @@ const Login = () => {
         dispatch(setCredentials(res));
         navigate(redirect);
       } catch (error: any) {
-        setErorrMessage(error.data.message);
+        setErrorMessage(error.data.message);
         console.log('@@@ Error', error);
       }
     },

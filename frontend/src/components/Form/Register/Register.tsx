@@ -35,6 +35,18 @@ const Register = () => {
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
+      if (
+        email === '' ||
+        password === '' ||
+        name === '' ||
+        confirmPassword === ''
+      ) {
+        setErrorMessage(
+          'Please fill in all required fields to ensure your submission is complete. Thank you!'
+        );
+        return;
+      }
+
       if (password !== confirmPassword) {
         setErrorMessage("The password you've insert is not correct");
         return;
