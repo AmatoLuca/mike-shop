@@ -18,6 +18,9 @@ const Shipping = () => {
     shippingAddress.postalCode || ''
   );
   const [country, setCountry] = useState(shippingAddress.country || '');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const { isShowMessage } = useShowMessage(errorMessage);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,6 +28,18 @@ const Shipping = () => {
   const submitHandler = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+
+      if (
+        address === '' ||
+        city === '' ||
+        postalCode === '' ||
+        country === ''
+      ) {
+        setErrorMessage(
+          'Please fill in all required fields to ensure your submission is complete. Thank you!'
+        );
+        return;
+      }
 
       dispatch(saveShippingAddress({ address, city, postalCode, country }));
       navigate('/payment');
@@ -34,7 +49,12 @@ const Shipping = () => {
 
   return (
     <>
-      {' '}
+      {isShowMessage && (
+        <Message
+          variant={MessageVariant.error}
+          content={errorMessage || 'Something wrong with Login action.'}
+        />
+      )}
       <StyledShipping>
         <h1>Shipping Options</h1>
 
