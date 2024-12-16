@@ -33,6 +33,13 @@ const Login = () => {
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
+      if (email === '' && password === '') {
+        setErorrMessage(
+          'Please fill in all required fields to ensure your submission is complete. Thank you!'
+        );
+        return;
+      }
+
       try {
         const res = await login({
           userInfo: {
