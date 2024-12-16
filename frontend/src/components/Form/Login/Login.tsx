@@ -59,7 +59,7 @@ const Login = () => {
   );
 
   useEffect(() => {
-    if (UserInfoState.email && UserInfoState.password) {
+    if (UserInfoState.email && UserInfoState.name) {
       navigate(redirect);
     }
   }, [UserInfoState, redirect, navigate]);
