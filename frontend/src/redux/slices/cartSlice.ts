@@ -17,7 +17,7 @@ const initialState: GlobalState = (() => {
         itemsPrice: CLEAR,
         taxPrice: CLEAR,
         totalPrice: CLEAR,
-        shippingAddress: {},
+        shippingAddress: { address: '', city: '', postalCode: '', country: '' },
         paymentMethod: '',
       };
 })();
