@@ -29,6 +29,15 @@ const PlaceOrder = () => {
           <PlaceOrderInfoItem key={key} keyItem={key} valueItem={value} />
         ))}
       </PlaceOrderInfo>
+
+      <PlaceOrderInfo title={PlaceOrderTitle.METHOD}>
+        <PlaceOrderInfoItem
+          keyItem={'Method'}
+          valueItem={CartState.paymentMethod}
+        />
+      </PlaceOrderInfo>
+
+      <PlaceOrderInfo title={PlaceOrderTitle.ITEMS}>p</PlaceOrderInfo>
     </StyledPlaceOrder>
   );
 };
