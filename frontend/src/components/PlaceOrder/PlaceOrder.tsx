@@ -3,6 +3,11 @@ import { StyledPlaceOrder } from './StyledPlaceOrder';
 import { Link, useNavigate } from 'react-router-dom';
 import CheckoutSteps from '../CheckoutSteps/CheckoutSteps';
 import { GetCart } from '../../redux/selectors';
+import { useCreateOrderMutation } from '../../redux/slices/orderApiSlice';
+import { clearCartItems } from '../../redux/slices/cartSlice';
+import PlaceOrderInfo from './PlaceOrderInfo/PlaceOrderInfo';
+import { PlaceOrderTitle } from './models';
+import PlaceOrderInfoItem from './PlaceOrderInfoItem/PlaceOrderInfoItem';
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -19,6 +24,11 @@ const PlaceOrder = () => {
   return (
     <StyledPlaceOrder>
       <CheckoutSteps step1 step2 step3 step4 />
+      <PlaceOrderInfo title={PlaceOrderTitle.SHIPPING}>
+        {Object.entries(CartState.shippingAddress).map(([key, value]) => (
+          <PlaceOrderInfoItem key={key} keyItem={key} valueItem={value} />
+        ))}
+      </PlaceOrderInfo>
     </StyledPlaceOrder>
   );
 };
