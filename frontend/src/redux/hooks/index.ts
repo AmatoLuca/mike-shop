@@ -10,6 +10,7 @@ import {
   useLogoutMutation,
   useRegisterMutation,
 } from '../slices/usersApiSlice';
+import { useCreateOrderMutation } from '../slices/orderApiSlice';
 
 // UseAppDispatch è una funzione che restituisce il tipo AppDispatch, ovvero la funzione di dispatch del negozio
 export const UseAppDispatch: () => AppDispatch = useDispatch;
@@ -28,6 +29,9 @@ export type LogoutPostRequest = ReturnType<typeof useLogoutMutation>;
 
 // useRegisterMutation
 export type RegisterPostRequest = ReturnType<typeof useRegisterMutation>;
+
+// useCreateOrderMutation
+export type CreateOrderPostRequest = ReturnType<typeof useCreateOrderMutation>;
 
 // useGetProductDetailsQuery
 export type GetProductDetailsResponse = ReturnType<
