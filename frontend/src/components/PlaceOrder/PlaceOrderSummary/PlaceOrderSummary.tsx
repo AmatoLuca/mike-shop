@@ -1,8 +1,12 @@
+import { useCallback } from 'react';
 import { StyledPlaceOrderSummary } from './StyledPlaceOrderSummary';
 import { GetCart } from '../../../redux/selectors';
 
 const PlaceOrderSummary = () => {
   const CartState = GetCart();
+
+  const placeOrderHandler = useCallback(() => {}, []);
+
   return (
     <StyledPlaceOrderSummary>
       <div className="order-summary-inner">
@@ -28,10 +32,14 @@ const PlaceOrderSummary = () => {
 
         <div className="order-summary-row-btn">
           {CartState.cartItems.length === 0 ? (
-            <button className="btn-disabled">Continue</button>
+            <button className="btn-disabled">Place Order</button>
           ) : (
-            <button className="btn-active" type="submit">
-              Continue
+            <button
+              className="btn-active"
+              type="submit"
+              onClick={placeOrderHandler}
+            >
+              Place Order
             </button>
           )}
         </div>
