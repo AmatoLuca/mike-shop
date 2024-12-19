@@ -9,6 +9,7 @@ import PlaceOrderInfo from './PlaceOrderInfo/PlaceOrderInfo';
 import { PlaceOrderTitle } from './models';
 import PlaceOrderInfoItem from './PlaceOrderInfoItem/PlaceOrderInfoItem';
 import CartProduct from '../Cart/CartProduct/CartProduct';
+import PlaceOrderSummary from './PlaceOrderSummary/PlaceOrderSummary';
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -46,6 +47,10 @@ const PlaceOrder = () => {
             key={productItem._id}
           />
         ))}
+      </PlaceOrderInfo>
+
+      <PlaceOrderInfo title={PlaceOrderTitle.SUMMARY}>
+        <PlaceOrderSummary />
       </PlaceOrderInfo>
     </StyledPlaceOrder>
   );
