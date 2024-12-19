@@ -3,7 +3,10 @@ import { StyledCartProduct } from './StyledCartProduct';
 import { Link } from 'react-router-dom';
 import Widjet from '../Widjet/Widjet';
 
-const CartProduct = ({ product }: CartProductComponentProps) => {
+const CartProduct = ({
+  product,
+  isUseWidjet = true,
+}: CartProductComponentProps) => {
   return (
     <StyledCartProduct>
       <div className="cart-product">
@@ -22,8 +25,7 @@ const CartProduct = ({ product }: CartProductComponentProps) => {
           <div className="cart-product-size">{`Size ${product.sizeChosen}`}</div>
         </div>
       </div>
-
-      <Widjet product={product} />
+      {isUseWidjet && <Widjet product={product} />}
     </StyledCartProduct>
   );
 };

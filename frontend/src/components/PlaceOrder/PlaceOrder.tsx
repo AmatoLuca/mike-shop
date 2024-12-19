@@ -8,6 +8,7 @@ import { clearCartItems } from '../../redux/slices/cartSlice';
 import PlaceOrderInfo from './PlaceOrderInfo/PlaceOrderInfo';
 import { PlaceOrderTitle } from './models';
 import PlaceOrderInfoItem from './PlaceOrderInfoItem/PlaceOrderInfoItem';
+import CartProduct from '../Cart/CartProduct/CartProduct';
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -37,7 +38,15 @@ const PlaceOrder = () => {
         />
       </PlaceOrderInfo>
 
-      <PlaceOrderInfo title={PlaceOrderTitle.ITEMS}>p</PlaceOrderInfo>
+      <PlaceOrderInfo title={PlaceOrderTitle.ITEMS}>
+        {CartState.cartItems.map((productItem) => (
+          <CartProduct
+            product={productItem}
+            isUseWidjet={false}
+            key={productItem._id}
+          />
+        ))}
+      </PlaceOrderInfo>
     </StyledPlaceOrder>
   );
 };
