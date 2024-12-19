@@ -10,9 +10,8 @@ export const StyledPlaceOrderSummary = styled.div`
   .order-summary-inner {
     .order-summary-row {
       display: flex;
-      gap: 200px;
+      justify-content: space-between;
       padding: 16px;
-
       border-bottom: 1px solid #cfcfcf;
 
       .order-summary-key {

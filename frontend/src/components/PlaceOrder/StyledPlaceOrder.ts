@@ -16,8 +16,15 @@ export const StyledPlaceOrder = styled.div`
     gap: 50px;
     paddin-top: 40px;
     padding-bottom: 40px;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
-  place-order-col-2 {
+  .place-order-col-2 {
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 `;
