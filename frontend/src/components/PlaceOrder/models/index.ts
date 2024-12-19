@@ -14,3 +14,8 @@ export type PlaceOrderInfoItemProps = {
   keyItem: string;
   valueItem: string;
 };
+
+export type PlaceOrderSummaryProps = {
+  isLoading: boolean;
+  onPlaceOrder: () => void;
+};

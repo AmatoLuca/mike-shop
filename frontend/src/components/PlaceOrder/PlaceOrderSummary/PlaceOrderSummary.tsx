@@ -1,11 +1,14 @@
 import { useCallback } from 'react';
 import { StyledPlaceOrderSummary } from './StyledPlaceOrderSummary';
 import { GetCart } from '../../../redux/selectors';
+import { PlaceOrderSummaryProps } from '../models';
+import Loader from '../../Loader/Loader';
 
-const PlaceOrderSummary = () => {
+const PlaceOrderSummary = ({
+  isLoading,
+  onPlaceOrder,
+}: PlaceOrderSummaryProps) => {
   const CartState = GetCart();
-
-  const placeOrderHandler = useCallback(() => {}, []);
 
   return (
     <StyledPlaceOrderSummary>
@@ -30,19 +33,25 @@ const PlaceOrderSummary = () => {
           <div className="order-summary-value">{CartState.totalPrice} €</div>
         </div>
 
-        <div className="order-summary-row-btn">
-          {CartState.cartItems.length === 0 ? (
-            <button className="btn-disabled">Place Order</button>
-          ) : (
-            <button
-              className="btn-active"
-              type="submit"
-              onClick={placeOrderHandler}
-            >
-              Place Order
-            </button>
-          )}
-        </div>
+        {isLoading ? (
+          <div className="order-summary-row-btn">
+            <Loader />
+          </div>
+        ) : (
+          <div className="order-summary-row-btn">
+            {CartState.cartItems.length === 0 ? (
+              <button className="btn-disabled">Place Order</button>
+            ) : (
+              <button
+                className="btn-active"
+                type="submit"
+                onClick={onPlaceOrder}
+              >
+                Place Order
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </StyledPlaceOrderSummary>
   );
