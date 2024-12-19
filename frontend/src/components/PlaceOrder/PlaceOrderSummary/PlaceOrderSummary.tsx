@@ -28,9 +28,7 @@ const PlaceOrderSummary = () => {
 
         <div className="order-summary-row-btn">
           {CartState.cartItems.length === 0 ? (
-            <button className="btn-disabled" type="submit">
-              Continue
-            </button>
+            <button className="btn-disabled">Continue</button>
           ) : (
             <button className="btn-active" type="submit">
               Continue
