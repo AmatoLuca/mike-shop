@@ -26,7 +26,7 @@ const PlaceOrder = () => {
   const [createOrder, { isLoading, error }]: CreateOrderPostRequest =
     useCreateOrderMutation();
 
-  const { isShowMessage } = useShowMessage(error);
+  const { isShowMessage } = useShowMessage(errorMessage);
 
   const placeOrderHandler = useCallback(async () => {
     try {
@@ -49,12 +49,11 @@ const PlaceOrder = () => {
       }).unwrap();
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setErrorMessage(err.message);
-      } else {
+    } catch (error: unknown) {
+      if (error instanceof Error) {
         setErrorMessage(
-          'Sorry, an error occurred while trying to create the order.'
+          error.message ||
+            'Sorry, an error occurred while trying to create the order.'
         );
       }
     }
@@ -68,12 +67,16 @@ const PlaceOrder = () => {
     }
   }, [CartState.shippingAddress.address, CartState.paymentMethod, navigate]);
 
+  useEffect(() => {
+    setErrorMessage(error?.data?.message || error?.error);
+  }, [error]);
+
   return (
     <>
       {isShowMessage && (
         <Message
           variant={MessageVariant.error}
-          content={error?.data?.message || error?.error}
+          content={errorMessage as string}
         />
       )}
       <CheckoutSteps step1 step2 step3 step4 />
