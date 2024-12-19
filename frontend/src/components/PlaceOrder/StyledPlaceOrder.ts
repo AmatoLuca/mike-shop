@@ -10,6 +10,10 @@ export const StyledPlaceOrder = styled.div`
     justify-content: space-between;
   }
 
+  @media (min-width: 992px) {
+    gap: 150px;
+  }
+
   .place-order-col-1 {
     display: flex;
     flex-direction: column;
