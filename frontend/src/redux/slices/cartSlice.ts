@@ -61,9 +61,28 @@ const cartSlice = createSlice({
 
       if (itemToRemove) {
         if (itemToRemove?.qty === 1) {
-          state.cartItems = state.cartItems.filter((item: Product) => {
-            return item._id !== action.payload._id;
-          });
+          // Decrement the product with the same size
+          const tempCartDecrementedSize = state.cartItems.map(
+            (item: Product) => {
+              if (
+                item._id === itemToRemove._id &&
+                item.sizeChosen === itemToRemove.sizeChosen
+              ) {
+                return { ...item, qty: item.qty - 1 };
+              }
+              return item;
+            }
+          );
+
+          // Clears the cart of products with zero quantity
+          const tempCartCleaned = tempCartDecrementedSize.filter(
+            (item: Product) => {
+              return item.qty >= 1;
+            }
+          );
+
+          state.cartItems = tempCartCleaned;
+
           state.itemsPrice = CLEAR;
           state.shippingPrice = CLEAR;
           state.taxPrice = CLEAR;

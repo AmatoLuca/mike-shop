@@ -17,7 +17,7 @@ const CartScreen = () => {
       <CartContentLayout>
         <CartContentLayout.Main>
           {CartState.cartItems.map((item) => {
-            return <CartProduct key={item.sizeChosen} product={item} />;
+            return <CartProduct key={item._id} product={item} />;
           })}
         </CartContentLayout.Main>
         <CartContentLayout.Summary>
