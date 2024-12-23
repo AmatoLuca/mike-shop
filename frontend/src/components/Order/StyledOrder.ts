@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledOrder = styled.div`
-  padding-top: 60px;
+  padding-top: 100px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 60px;

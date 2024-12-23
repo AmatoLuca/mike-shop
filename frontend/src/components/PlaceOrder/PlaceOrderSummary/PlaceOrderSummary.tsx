@@ -6,6 +6,8 @@ import Loader from '../../Loader/Loader';
 const PlaceOrderSummary = ({
   isLoading,
   onPlaceOrder,
+  data,
+  btnText,
 }: PlaceOrderSummaryProps) => {
   const CartState = GetCart();
 
@@ -14,22 +16,22 @@ const PlaceOrderSummary = ({
       <div className="order-summary-inner">
         <div className="order-summary-row">
           <div className="order-summary-key">Items</div>
-          <div className="order-summary-value">{CartState.itemsPrice} €</div>
+          <div className="order-summary-value">{data.itemsPrice} €</div>
         </div>
 
         <div className="order-summary-row">
           <div className="order-summary-key">Shipping</div>
-          <div className="order-summary-value">{CartState.shippingPrice} €</div>
+          <div className="order-summary-value">{data.shippingPrice} €</div>
         </div>
 
         <div className="order-summary-row">
           <div className="order-summary-key">Tax</div>
-          <div className="order-summary-value">{CartState.taxPrice} €</div>
+          <div className="order-summary-value">{data.taxPrice} €</div>
         </div>
 
         <div className="order-summary-row">
           <div className="order-summary-key">Total</div>
-          <div className="order-summary-value">{CartState.totalPrice} €</div>
+          <div className="order-summary-value">{data.totalPrice} €</div>
         </div>
 
         {isLoading ? (
@@ -39,14 +41,14 @@ const PlaceOrderSummary = ({
         ) : (
           <div className="order-summary-row-btn">
             {CartState.cartItems.length === 0 ? (
-              <button className="btn-disabled">Place Order</button>
+              <button className="btn-disabled">{btnText}</button>
             ) : (
               <button
                 className="btn-active"
                 type="submit"
                 onClick={onPlaceOrder}
               >
-                Place Order
+                {btnText}
               </button>
             )}
           </div>

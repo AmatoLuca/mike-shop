@@ -18,4 +18,11 @@ export type PlaceOrderInfoItemProps = {
 export type PlaceOrderSummaryProps = {
   isLoading: boolean;
   onPlaceOrder: () => void;
+  data: {
+    itemsPrice: string;
+    shippingPrice: string;
+    taxPrice: string;
+    totalPrice: string;
+  };
+  btnText: string;
 };

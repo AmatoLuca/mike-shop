@@ -110,6 +110,13 @@ const PlaceOrder = () => {
             <PlaceOrderSummary
               isLoading={isLoading}
               onPlaceOrder={placeOrderHandler}
+              data={{
+                itemsPrice: CartState.itemsPrice || '',
+                shippingPrice: CartState.shippingPrice || '',
+                taxPrice: CartState.taxPrice || '',
+                totalPrice: CartState.totalPrice || '',
+              }}
+              btnText={'Place Order'}
             />
           </PlaceOrderInfo>
         </div>

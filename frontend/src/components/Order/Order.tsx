@@ -49,7 +49,7 @@ const Order = () => {
       ) : (
         <StyledOrder>
           <div className="place-order-col-1">
-            <h1>Order: {order._id}</h1>
+            {/* {<h1>Order: {order._id}</h1>} */}
             <PlaceOrderInfo title={OrderTitle.SHIPPING}>
               <PlaceOrderInfoItem
                 keyItem={'Name'}
@@ -107,6 +107,13 @@ const Order = () => {
               <PlaceOrderSummary
                 isLoading={isLoading}
                 onPlaceOrder={() => {}}
+                data={{
+                  itemsPrice: order.itemsPrice,
+                  shippingPrice: order.shippingPrice,
+                  taxPrice: order.taxPrice,
+                  totalPrice: order.totalPrice,
+                }}
+                btnText={'PayPal'}
               />
             </PlaceOrderInfo>
           </div>
