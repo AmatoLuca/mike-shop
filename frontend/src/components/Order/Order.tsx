@@ -11,7 +11,7 @@ import { MessageVariant } from '../Message/models';
 import PlaceOrderInfo from '../PlaceOrder/PlaceOrderInfo/PlaceOrderInfo';
 import PlaceOrderInfoItem from '../PlaceOrder/PlaceOrderInfoItem/PlaceOrderInfoItem';
 import Info from './Info/Info';
-import Item from './OrderItem/OrderItem';
+import Item from './OrderItem/Item';
 import PlaceOrderSummary from '../PlaceOrder/PlaceOrderSummary/PlaceOrderSummary';
 
 const Order = () => {
