@@ -1,5 +1,4 @@
 import { StyledPlaceOrderSummary } from './StyledPlaceOrderSummary';
-import { GetCart } from '../../../redux/selectors';
 import { PlaceOrderSummaryProps } from '../models';
 import Loader from '../../Loader/Loader';
 
@@ -8,9 +7,8 @@ const PlaceOrderSummary = ({
   onPlaceOrder,
   data,
   btnText,
+  itemListLength,
 }: PlaceOrderSummaryProps) => {
-  const CartState = GetCart();
-
   return (
     <StyledPlaceOrderSummary>
       <div className="order-summary-inner">
@@ -40,7 +38,7 @@ const PlaceOrderSummary = ({
           </div>
         ) : (
           <div className="order-summary-row-btn">
-            {CartState.cartItems.length === 0 ? (
+            {itemListLength === 0 ? (
               <button className="btn-disabled">{btnText}</button>
             ) : (
               <button

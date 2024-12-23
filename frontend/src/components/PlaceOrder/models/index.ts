@@ -25,4 +25,5 @@ export type PlaceOrderSummaryProps = {
     totalPrice: string;
   };
   btnText: string;
+  itemListLength: number;
 };

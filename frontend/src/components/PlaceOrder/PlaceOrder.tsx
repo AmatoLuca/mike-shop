@@ -117,6 +117,7 @@ const PlaceOrder = () => {
                 totalPrice: CartState.totalPrice || '',
               }}
               btnText={'Place Order'}
+              itemListLength={CartState.cartItems.length}
             />
           </PlaceOrderInfo>
         </div>

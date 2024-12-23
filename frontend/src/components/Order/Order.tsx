@@ -114,6 +114,7 @@ const Order = () => {
                   totalPrice: order.totalPrice,
                 }}
                 btnText={'PayPal'}
+                itemListLength={order.orderItems.length}
               />
             </PlaceOrderInfo>
           </div>
