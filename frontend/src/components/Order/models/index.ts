@@ -31,3 +31,27 @@ export type OrderItem = {
 export type OrderItemProps = {
   productItem: OrderItem;
 };
+
+export type Order = {
+  user: {
+    _id: string;
+    email: string;
+    name: string;
+  };
+  updatedAt: string;
+  shippingPrice: number;
+  taxPrice: number;
+  totalPrice: number;
+  shippingAddress: {
+    address: string;
+    city: string;
+    country: string;
+    postalCode: string;
+  };
+  paymentMethod: string;
+  orderItems: OrderItem[];
+  createdAt: '2024-12-23T15:56:57.371Z';
+  isDelivered: boolean;
+  isPaid: boolean;
+  itemsPrice: number;
+};
