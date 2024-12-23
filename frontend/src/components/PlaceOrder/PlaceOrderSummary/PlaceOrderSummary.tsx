@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { StyledPlaceOrderSummary } from './StyledPlaceOrderSummary';
 import { GetCart } from '../../../redux/selectors';
 import { PlaceOrderSummaryProps } from '../models';
