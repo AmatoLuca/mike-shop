@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { StyledOrder } from './StyledOrder';
 import { OrderIdParams, OrderTitle, InfoColor, OrderItem } from './models';
@@ -33,7 +33,21 @@ const Order = () => {
   const [payOrder, { isLoading: isLoadingPay }]: DoPayOrderRequest =
     usePayOrderMutation();
 
-  console.log('@@@ order:', order);
+  const payOrderHandler = useCallback(async () => {
+    try {
+      await payOrder(orderId);
+      refetch();
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setErrorMessage(
+          error.message ||
+            'Sorry, an error occurred during the payment process.'
+        );
+      }
+    }
+  }, [refetch, payOrder, orderId]);
+
+  //console.log('@@@ order:', order);
 
   useEffect(() => {
     if (error) {
@@ -55,7 +69,6 @@ const Order = () => {
       ) : (
         <StyledOrder>
           <div className="place-order-col-1">
-            {/* {<h1>Order: {order._id}</h1>} */}
             <PlaceOrderInfo title={OrderTitle.SHIPPING}>
               <PlaceOrderInfoItem
                 keyItem={'Name'}
@@ -112,14 +125,14 @@ const Order = () => {
             <PlaceOrderInfo title={OrderTitle.SUMMARY}>
               <PlaceOrderSummary
                 isLoading={isLoading}
-                onPlaceOrder={() => {}}
+                onPlaceOrder={!order.isPaid ? payOrderHandler : () => {}}
                 data={{
                   itemsPrice: order.itemsPrice,
                   shippingPrice: order.shippingPrice,
                   taxPrice: order.taxPrice,
                   totalPrice: order.totalPrice,
                 }}
-                btnText={'PayPal'}
+                btnText={!order.isPaid ? 'PayPal' : 'Order already paid'}
                 itemListLength={order.orderItems.length}
               />
             </PlaceOrderInfo>
