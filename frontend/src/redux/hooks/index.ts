@@ -13,6 +13,7 @@ import {
 import {
   useCreateOrderMutation,
   useGetOrderDetailsQuery,
+  usePayOrderMutation,
 } from '../slices/orderApiSlice';
 
 // UseAppDispatch è una funzione che restituisce il tipo AppDispatch, ovvero la funzione di dispatch del negozio
@@ -43,3 +44,6 @@ export type GetProductDetailsResponse = ReturnType<
 
 // useGetOrderDetailsQuery
 export type GetOrderDetailsRequest = ReturnType<typeof useGetOrderDetailsQuery>;
+
+// usePayOrderMutation
+export type DoPayOrderRequest = ReturnType<typeof usePayOrderMutation>;
