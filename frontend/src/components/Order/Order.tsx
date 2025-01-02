@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { StyledOrder } from './StyledOrder';
 import { OrderIdParams, OrderTitle, InfoColor, OrderItem } from './models';
-import { GetOrderDetailsRequest } from '../../redux/hooks';
-import { useGetOrderDetailsQuery } from '../../redux/slices/orderApiSlice';
+import { GetOrderDetailsRequest, DoPayOrderRequest } from '../../redux/hooks';
+import {
+  useGetOrderDetailsQuery,
+  usePayOrderMutation,
+} from '../../redux/slices/orderApiSlice';
 import Loader from '../Loader/Loader';
 import Message from '../Message/Message';
 import useShowMessage from '../../hooks/useShowMessage';
@@ -26,6 +29,9 @@ const Order = () => {
     isLoading,
     error,
   }: GetOrderDetailsRequest = useGetOrderDetailsQuery(orderId);
+
+  const [payOrder, { isLoading: isLoadingPay }]: DoPayOrderRequest =
+    usePayOrderMutation();
 
   console.log('@@@ order:', order);
 
