@@ -53,6 +53,14 @@ export const StyledUserAuthenticated = styled.div`
     &:hover {
       color: #707072;
     }   
+
+    a {
+      color: #707072;
+
+      &:hover {
+        color: #111111;   
+      }
+    }
   }
 
   .dropdown-item:hover {
