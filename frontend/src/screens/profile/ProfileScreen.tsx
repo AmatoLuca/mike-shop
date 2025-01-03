@@ -1,7 +1,7 @@
-import { StyledProfileScreen } from './StyledProfileScreen';
+import FormContainer from '../../components/Form/FormContainer/FormContainer';
 
 const ProfileScreen = () => {
-  return <StyledProfileScreen>ProfileScreen</StyledProfileScreen>;
+  return <FormContainer>ProfileScreen</FormContainer>;
 };
 
 export default ProfileScreen;
