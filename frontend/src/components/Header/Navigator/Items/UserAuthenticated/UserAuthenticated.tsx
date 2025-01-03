@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLogoutMutation } from '../../../../../redux/slices/usersApiSlice';
 import { logout } from '../../../../../redux/slices/authSlice';
+import { Link } from 'react-router-dom';
 
 const UserAuthenticated = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,9 @@ const UserAuthenticated = () => {
         {isOpen && (
           <div className="dropdown-menu">
             <div className="filler"></div>
-            <div className="dropdown-item">Profile</div>
+            <div className="dropdown-item">
+              <Link to="/profile">Profile</Link>
+            </div>
             <div className="dropdown-item" onClick={logoutHandler}>
               Logout
             </div>
