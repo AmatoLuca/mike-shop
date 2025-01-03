@@ -9,6 +9,7 @@ import {
   useLoginMutation,
   useLogoutMutation,
   useRegisterMutation,
+  useProfileMutation,
 } from '../slices/usersApiSlice';
 import {
   useCreateOrderMutation,
@@ -33,6 +34,11 @@ export type LogoutPostRequest = ReturnType<typeof useLogoutMutation>;
 
 // useRegisterMutation
 export type RegisterPostRequest = ReturnType<typeof useRegisterMutation>;
+
+// useProfileMutation
+export type UpdateUserProfilePostRequest = ReturnType<
+  typeof useProfileMutation
+>;
 
 // useCreateOrderMutation
 export type CreateOrderPostRequest = ReturnType<typeof useCreateOrderMutation>;
