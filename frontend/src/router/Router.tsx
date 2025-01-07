@@ -17,7 +17,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import PaymentScreen from '../screens/Payment/PaymentScreen';
 import PlaceOrderScreen from '../screens/PlaceOrder/PlaceOrderScreen';
 import OrderScreen from '../screens/Order/OrderScreen';
-import ProfileScreen from '../screens/Profile/ProfileScreen';
+import ProfileScreen from '../screens/profile/ProfileScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
