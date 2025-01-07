@@ -22,5 +22,6 @@ export type UserInfoState = {
     email: string | null;
     password: string | null;
     name?: string | null;
+    _id: string | null;
   };
 };

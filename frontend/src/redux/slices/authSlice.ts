@@ -6,6 +6,7 @@ const UserInfoDefault: UserInfoState = {
     email: null,
     password: null,
     name: null,
+    _id: null,
   },
 };
 
@@ -19,6 +20,7 @@ const initialState: UserInfoState = (() => {
         email: parsing.email,
         password: parsing.password,
         name: parsing.name,
+        _id: parsing._id,
       },
     };
   } else {
@@ -39,6 +41,7 @@ const authSlice = createSlice({
         email: UserInfoDefault.userInfo.email,
         password: UserInfoDefault.userInfo.password,
         name: UserInfoDefault.userInfo.name,
+        _id: UserInfoDefault.userInfo._id,
       };
       localStorage.removeItem('userInfo');
     },
