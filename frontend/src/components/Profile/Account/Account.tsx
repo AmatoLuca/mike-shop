@@ -1,7 +1,7 @@
-import React from 'react';
+import { StyledAccount } from './StyledAccount';
 
 const Account = () => {
-  return <div>Account</div>;
+  return <StyledAccount>Account</StyledAccount>;
 };
 
 export default Account;
