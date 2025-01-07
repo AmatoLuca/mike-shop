@@ -4,7 +4,10 @@ import Profile from '../../components/Profile/Profile';
 const ProfileScreen = () => {
   return (
     <FormContainer>
-      <Profile />
+      <Profile>
+        <Profile.Navigator />
+        <Profile.Content />
+      </Profile>
     </FormContainer>
   );
 };
