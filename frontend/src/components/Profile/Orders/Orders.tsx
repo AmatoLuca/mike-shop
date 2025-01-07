@@ -1,7 +1,7 @@
-import React from 'react';
+import { StyledOrders } from './StyledOrders';
 
 const Orders = () => {
-  return <div>Orders</div>;
+  return <StyledOrders>Orders</StyledOrders>;
 };
 
 export default Orders;
