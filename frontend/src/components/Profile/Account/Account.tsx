@@ -9,6 +9,8 @@ import Message from '../../Message/Message';
 import useShowMessage from '../../../hooks/useShowMessage';
 import { MessageVariant } from '../../Message/models';
 import Loader from '../../Loader/Loader';
+import Info from '../../Order/Info/Info';
+import { InfoColor } from '../../Order/models';
 
 const Account = () => {
   const [name, setName] = useState('');
@@ -16,6 +18,7 @@ const Account = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const UserInfoState = GetUserInfo();
 
@@ -41,9 +44,7 @@ const Account = () => {
         setErrorMessage(
           'Please provide all the informations required to apply changes.'
         );
-      }
-
-      if (password !== confirmPassword) {
+      } else if (password !== confirmPassword) {
         setErrorMessage(
           'The old password and the new password do not match. Please try again.'
         );
@@ -57,6 +58,8 @@ const Account = () => {
           }).unwrap();
 
           dispatch(setCredentials(res));
+
+          setIsSuccess(true);
         } catch (error: unknown) {
           if (error instanceof Error) {
             setErrorMessage(
@@ -99,6 +102,14 @@ const Account = () => {
       ) : (
         <StyledAccount>
           <h1>Account Details</h1>
+
+          {isSuccess && (
+            <Info
+              text={`Profile updated successfully`}
+              color={InfoColor.SUCCESS}
+            />
+          )}
+
           <form onSubmit={submitHandler}>
             <div className="form-row">
               <input
