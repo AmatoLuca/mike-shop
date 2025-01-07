@@ -2,11 +2,13 @@ import { createContext, useState, useCallback } from 'react';
 import { StyledProfile } from './StyledProfile';
 import Navigator from './Navigator/Navigator';
 import Content from './Content/Content';
-import { TabOptionSelection } from './models';
+import { TabOptionSelection, ProfileContextType } from './models';
+
+export const ProfileContext = createContext<ProfileContextType | undefined>(
+  undefined
+);
 
 const Profile = ({ children }: { children: React.ReactNode }) => {
-  const ProfileContext = createContext({});
-
   const [selectedTab, setSelectedTab] = useState<TabOptionSelection>(
     TabOptionSelection.SETTINGS
   );
