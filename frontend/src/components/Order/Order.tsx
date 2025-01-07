@@ -47,8 +47,6 @@ const Order = () => {
     }
   }, [refetch, payOrder, orderId]);
 
-  //console.log('@@@ order:', order);
-
   useEffect(() => {
     if (error) {
       setErrorMessage(error);
