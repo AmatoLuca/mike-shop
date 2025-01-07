@@ -45,6 +45,7 @@ const Login = () => {
           userInfo: {
             email: email,
             password: password,
+            _id: UserInfoState._id,
           },
         }).unwrap();
 
