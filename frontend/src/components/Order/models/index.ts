@@ -54,4 +54,5 @@ export type Order = {
   isDelivered: boolean;
   isPaid: boolean;
   itemsPrice: number;
+  _id?: string;
 };
