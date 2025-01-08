@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const StyledNavigator = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding-bottom: 70px;
-  gap: 14px;
+  gap: 22px;
 
   @media (min-width: 500px) {
     justify-content: center;
