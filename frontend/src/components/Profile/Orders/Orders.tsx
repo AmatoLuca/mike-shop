@@ -21,11 +21,17 @@ const Orders = () => {
   }, [orders]);
 
   return (
-    <StyledOrders>
-      {completeOrdersList?.map((order: OrderItem) => {
-        return <Item orderData={order} key={order._id} />;
-      })}
-    </StyledOrders>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <StyledOrders>
+          {completeOrdersList?.map((order: OrderItem) => {
+            return <Item orderData={order} key={order._id} />;
+          })}
+        </StyledOrders>
+      )}
+    </>
   );
 };
 
