@@ -6,6 +6,9 @@ import Loader from '../../Loader/Loader';
 import Item from './Item/Item';
 import { Order } from '../../Order/models';
 import { OrderItem } from './models';
+import Message from '../../Message/Message';
+import useShowMessage from '../../../hooks/useShowMessage';
+import { MessageVariant } from '../../Message/models';
 
 const Orders = () => {
   const {
@@ -20,8 +23,17 @@ const Orders = () => {
     return orderItems;
   }, [orders]);
 
+  const { isShowMessage } = useShowMessage(isError);
+
   return (
     <>
+      {isShowMessage && (
+        <Message
+          variant={MessageVariant.error}
+          content={isError?.data?.message || isError?.error}
+        />
+      )}
+
       {isLoading ? (
         <Loader />
       ) : (
