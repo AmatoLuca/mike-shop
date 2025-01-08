@@ -1,5 +1,6 @@
 import { ProfileOrderData } from '../../models';
 import { StyledItemContent } from './StyledItemContent';
+import { Link } from 'react-router-dom';
 
 const ItemContent = ({ orderData }: ProfileOrderData) => {
   return (
@@ -20,6 +21,9 @@ const ItemContent = ({ orderData }: ProfileOrderData) => {
           0,
           10
         )}`}</div>
+        <div className="profile-orders-info-details-btn">
+          <Link to={`/order/${orderData._id_order}`}>Details</Link>
+        </div>
       </div>
     </StyledItemContent>
   );
