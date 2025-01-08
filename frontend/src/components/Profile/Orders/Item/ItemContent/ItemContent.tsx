@@ -22,7 +22,9 @@ const ItemContent = ({ orderData }: ProfileOrderData) => {
           10
         )}`}</div>
         <div className="profile-orders-info-details-btn">
-          <Link to={`/order/${orderData._id_order}`}>Details</Link>
+          <Link to={`/order/${orderData._id_order}`}>
+            <button>Details</button>
+          </Link>
         </div>
       </div>
     </StyledItemContent>
