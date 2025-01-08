@@ -56,4 +56,4 @@ export type GetOrderDetailsRequest = ReturnType<typeof useGetOrderDetailsQuery>;
 export type DoPayOrderRequest = ReturnType<typeof usePayOrderMutation>;
 
 // useGetMyOrdersQuery
-export type GetOrders = ReturnType<typeof useGetMyOrdersQuery>;
+export type GetOrdersRequest = ReturnType<typeof useGetMyOrdersQuery>;
