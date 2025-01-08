@@ -17,8 +17,17 @@ const Orders = () => {
     isError,
   }: GetOrdersRequest = useGetMyOrdersQuery({});
 
+  // Each order got an order id and a list od orderItems.
+  // Here we extract every object in each orderItems array and add in it
+  // the Id of every order related to
   const completeOrdersList = useMemo(() => {
-    const orderItems = orders?.map((order: Order) => order.orderItems).flat();
+    const orderItems = orders
+      ?.map((order: Order) => {
+        return order.orderItems.map((orderTemp) => {
+          return { ...orderTemp, _id_order: order._id };
+        });
+      })
+      .flat();
 
     return orderItems;
   }, [orders]);
