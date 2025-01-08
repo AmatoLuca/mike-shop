@@ -1,5 +1,3 @@
-import { Order } from '../../../Order/models';
-
 export type OrderItem = {
   image: string;
   name: string;
@@ -8,6 +6,7 @@ export type OrderItem = {
   qty: number;
   sizeChosen: number;
   _id: string;
+  _id_order: string;
 };
 
 export type ProfileOrderData = {
