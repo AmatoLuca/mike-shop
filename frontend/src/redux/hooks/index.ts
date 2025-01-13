@@ -4,6 +4,7 @@ import type { RootState, AppDispatch } from '../store';
 import {
   useGetProductsQuery,
   useGetProductDetailsQuery,
+  useCreateReviewMutation,
 } from '../slices/productsApiSlice';
 import {
   useLoginMutation,
@@ -57,3 +58,6 @@ export type DoPayOrderRequest = ReturnType<typeof usePayOrderMutation>;
 
 // useGetMyOrdersQuery
 export type GetOrdersRequest = ReturnType<typeof useGetMyOrdersQuery>;
+
+// useCreateReviewMutation
+export type CreateReviewRequest = ReturnType<typeof useCreateReviewMutation>;
