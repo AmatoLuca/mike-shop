@@ -5,7 +5,7 @@ import Reviews from './Reviews/Reviews';
 import Stars from './Stars/Stars';
 import { RatingComponentProps } from './models';
 
-const Rating = ({ value, text }: RatingComponentProps) => {
+const Rating = ({ value, text, product }: RatingComponentProps) => {
   const [isReviewOpened, setIsReviewOpened] = useState(false);
 
   const clickHanlder = useCallback(() => {
@@ -27,7 +27,7 @@ const Rating = ({ value, text }: RatingComponentProps) => {
           </div>
         </div>
 
-        {isReviewOpened && <Reviews />}
+        {isReviewOpened && <Reviews product={product} />}
       </div>
     </StyledRating>
   );
