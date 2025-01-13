@@ -122,6 +122,7 @@ const ProductScreen = () => {
               <Rating
                 value={product?.rating ?? 0}
                 text={`Reviews (${product?.numReviews})`}
+                product={product}
               />
             </div>
           </div>
