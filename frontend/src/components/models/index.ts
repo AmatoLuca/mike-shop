@@ -15,6 +15,7 @@ export type Product = {
   sizes: ProductSize[];
   qty: number;
   sizeChosen?: number;
+  reviews?: any[];
 };
 
 export type ProductsList = Product[];
