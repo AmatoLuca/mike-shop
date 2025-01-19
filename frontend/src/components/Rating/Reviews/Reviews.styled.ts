@@ -8,7 +8,6 @@ export const StyledReviews = styled.div`
     .review-info-header {
       display: flex;
       justify-content: space-between;
-      padding-right: 32px;
 
       .review-info-header_info {
         color: #707072;
