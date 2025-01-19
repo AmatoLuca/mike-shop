@@ -57,6 +57,7 @@ const Register = () => {
               email: email,
               password: password,
               name: name,
+              _id: UserInfoState._id,
             },
           }).unwrap();
 
