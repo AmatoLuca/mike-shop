@@ -30,7 +30,7 @@ const Order = () => {
     error,
   }: GetOrderDetailsRequest = useGetOrderDetailsQuery(orderId);
 
-  const [payOrder, { isLoading: isLoadingPay }]: DoPayOrderRequest =
+  const [payOrder /* { isLoading: isLoadingPay } */]: DoPayOrderRequest =
     usePayOrderMutation();
 
   const payOrderHandler = useCallback(async () => {
